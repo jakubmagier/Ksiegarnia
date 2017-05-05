@@ -226,7 +226,6 @@ if(&k != this)  //zabezpieczenie przed przypisaniem samego siebie
 	{
 		pracownicy[i] = k.pracownicy[i];
 	}
-	return *this;
 
 	if (ksiazka != nullptr)
 		delete[] ksiazka;
@@ -240,7 +239,7 @@ if(&k != this)  //zabezpieczenie przed przypisaniem samego siebie
 	return *this;
 }
 
-Ksiegarnia& Ksiegarnia::operator += (const Ksiegarnia &k) //ilu pracownikow pracuje w sumie w obu cukierniach
+Ksiegarnia& Ksiegarnia::operator += (const Ksiegarnia &k) //ilu pracownikow pracuje w sumie w obu ksiegarniach
 {
 	liczba_pracownikow += k.liczba_pracownikow;
 	return *this;
