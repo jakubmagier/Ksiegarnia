@@ -149,6 +149,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Drukarnia.h" />
     <ClInclude Include="Ksiazka.h" />
     <ClInclude Include="Ksiegarnia.h" />
     <ClInclude Include="Pracownicy.h" />
@@ -156,6 +157,7 @@
     <ClInclude Include="Siedziba.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Drukarnia.cpp" />
     <ClCompile Include="Ksiazka.cpp" />
     <ClCompile Include="Ksiegarnia.cpp" />
     <ClCompile Include="Pracownicy.cpp" />

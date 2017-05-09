@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include "Ksiegarnia.h"
+#include "Drukarnia.h"
 
 using namespace std;
 
@@ -12,17 +13,20 @@ int sumaKsiazek(int a, int b)
 int main()
 {
 	//Konstruktor ksiegarni: nazwa, wlasciciel, liczba pracownikow, liczba ksiazek, adres, nr telefonu, liczba pomieszczen)
-	Ksiegarnia test("Kolorowa", "Jan Kowalski", 1, 3, "Marszalkowska 22", 227564743, 3);
-	Ksiegarnia test1("Nowoczesna", "Piotr Nowak", 2, 2, "Aleje Jerozolimskie 24", 227654567, 4);
-	test.dodajPracownika("Andrzej Nowacki", "ochroniarz", 1750);
+	Drukarnia test;
+	test.wyswietlStan();
+
+	//Ksiegarnia test("Kolorowa", "Jan Kowalski", 1, 3, "Marszalkowska 22", 227564743, 3);
+	//Ksiegarnia test1("Nowoczesna", "Piotr Nowak", 2, 2, "Aleje Jerozolimskie 24", 227654567, 4);
+	//test.dodajPracownika("Andrzej Nowacki", "ochroniarz", 1750);
 
 #ifdef _DEBUG
-	cout<<endl;
+	/*cout<<endl;
 	cout<<"*********Pierwsza ksiegarnia: **********"<<endl<<endl;
-	test.wyswietlDaneKsiegarni();
+	//test.wyswietlDaneKsiegarni();
 	
 	cout << "*********Druga ksiegarnia:********** " << endl<<endl;
-	test1.wyswietlDaneKsiegarni();
+	//test1.wyswietlDaneKsiegarni();
 
 	cout << endl << "Nacisnij klawisz [ENTER] aby przejsc do testow operatorow." << endl;
 	cin.get();
@@ -95,8 +99,8 @@ int main()
 
 	cout << "******************  8.test operatora =:" << endl<<endl;
 	test = test1;
-	test.wyswietlDaneKsiegarni();
-	test1.wyswietlDaneKsiegarni();
+//	test.wyswietlDaneKsiegarni();
+//	test1.wyswietlDaneKsiegarni();
 
 	cout << endl << "Nacisnij klawisz [ENTER] aby kontynuowac." << endl;
 	cin.get();
@@ -121,7 +125,7 @@ int main()
 	cout << endl << "Nacisnij klawisz [ENTER] aby zakonczyc dzialanie programu." << endl;
 	cin.get();
 	cout << "---------------------------------------------------------" << endl;
-
+	*/
 #endif
 	return 0;
 }

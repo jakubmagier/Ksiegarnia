@@ -7,9 +7,10 @@ using namespace std;
 ///Klasa abstrakcyjna
 class Przedsiebiorstwo
 {
-protected:
-	///pole przechowuj¹ce nazwisko i imie wlasciciela
-	string nazwisko_imie;
+	string nazwa; ///<zmienna przechowuj¹ca nazwe przedsiebiorstwa
+protected:	
+	string wlasciciel; ///<zmienna przechowuj¹ca nazwisko i imie wlasciciela
+	static int iloscObiektow; ///<zmienna przechowujaca ilosc utworzonych obiektow
 public:
 	///Kontruktor domyœlny
 	Przedsiebiorstwo();
@@ -18,7 +19,7 @@ public:
 	///Procedura wirtualna
 	virtual void wyswietlStan() = 0;
 	///Procedura wirtualna
-	virtual void dodajPracownika() = 0;
+	//virtual void dodajPracownika() = 0;
 
 	///Operator strumieniowy <<
 	friend ostream&operator << (ostream &s, Przedsiebiorstwo &p);

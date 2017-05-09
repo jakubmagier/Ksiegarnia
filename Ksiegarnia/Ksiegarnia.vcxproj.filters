@@ -33,6 +33,9 @@
     <ClInclude Include="Przedsiebiorstwo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Drukarnia.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Ksiegarnia.cpp">
@@ -51,6 +54,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Przedsiebiorstwo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Drukarnia.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

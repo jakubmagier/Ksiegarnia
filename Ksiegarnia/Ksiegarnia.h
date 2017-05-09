@@ -4,10 +4,11 @@
 #include "Ksiazka.h"
 #include "Pracownicy.h"
 #include "Siedziba.h"
+#include "Przedsiebiorstwo.h"
 
 using namespace std;
 
-class Ksiegarnia
+class Ksiegarnia: public Przedsiebiorstwo
 {
 	Siedziba siedziba;
 	Ksiazka* ksiazka;
@@ -19,16 +20,16 @@ class Ksiegarnia
 
 public:
 
-	static int iloscObiektow;
+	//static int iloscObiektow;
 	Ksiegarnia(); //konstruktor
 	Ksiegarnia::Ksiegarnia(string dodaj_nazwe, string dodaj_wlasciciela, int ile_pracownikow, int ile_ksiazek, string dodaj_adres, int dodaj_nr_telefonu, int dodaj_liczba_pomieszczen);
 	~Ksiegarnia(); //destruktor
 	Ksiegarnia(const Ksiegarnia &ksiegarnia); //konstruktor kopiujacy
-	void wyswietlDaneKsiegarni();
+	void wyswietlStan();
 	void Ksiegarnia::wyswietlLiczbePracownikow();
 	void Ksiegarnia::wyswietlLiczbeKsiazek();
 	void dodajKsiazke(string nowy_tytul, string nowy_autor, int nowy_rok);
-	void dodajPracownika(string nowe_nazwisko_imie, string nowe_stanowisko, float nowe_zarobki);
+	//void dodajPracownika(string nowe_nazwisko_imie, string nowe_stanowisko, float nowe_zarobki);
 	
 	bool operator==(const Ksiegarnia &k);
 	bool operator>(const Ksiegarnia &k);

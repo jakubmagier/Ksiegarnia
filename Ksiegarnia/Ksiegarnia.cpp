@@ -4,7 +4,7 @@
 
 using namespace std;
 
-int Ksiegarnia::iloscObiektow = 0;
+//int Ksiegarnia::iloscObiektow = 0;
 
 Ksiegarnia::Ksiegarnia() // Konstruktor domyslny
 {
@@ -19,7 +19,7 @@ Ksiegarnia::Ksiegarnia() // Konstruktor domyslny
 	liczba_ksiazek=1;
 	pracownicy=new Pracownicy[liczba_pracownikow];
 	ksiazka=new Ksiazka[liczba_ksiazek];
-	iloscObiektow++;
+	//iloscObiektow++;
 	cout << "Obiekty:" << iloscObiektow << endl;
 	
 }
@@ -39,7 +39,7 @@ Ksiegarnia::Ksiegarnia(string dodaj_nazwe, string dodaj_wlasciciela, int ile_pra
 	liczba_ksiazek=ile_ksiazek;
 	pracownicy = new Pracownicy[liczba_pracownikow];
 	ksiazka = new Ksiazka[liczba_ksiazek];
-	iloscObiektow++;
+	//iloscObiektow++;
 	cout << "Obiekty:" << iloscObiektow << endl;
 
 }
@@ -96,7 +96,7 @@ Ksiegarnia::~Ksiegarnia()
 #endif
 	delete[]ksiazka;
 	delete[]pracownicy;
-	iloscObiektow--;
+	//iloscObiektow--;
 }
 
 //===========================METODY==============================
@@ -108,7 +108,7 @@ void Ksiegarnia::wyswietlLiczbeKsiazek()
 {
 	cout<<liczba_ksiazek<<endl;
 }
-void Ksiegarnia::wyswietlDaneKsiegarni()
+void Ksiegarnia::wyswietlStan()
 {
 	cout<<"Siedziba ksiegarni:"<<endl<<endl;
 	siedziba.wyswietlSiedzibe();
@@ -159,7 +159,7 @@ void Ksiegarnia::dodajKsiazke(string nowy_tytul, string nowy_autor, int nowy_rok
 	delete[]temp;
 }
 
-void Ksiegarnia::dodajPracownika(string nowe_nazwisko_imie, string nowe_stanowisko, float nowe_zarobki)
+/*void Ksiegarnia::dodajPracownika(string nowe_nazwisko_imie, string nowe_stanowisko, float nowe_zarobki)
 {
 	Pracownicy* temp;
 	temp = new Pracownicy[liczba_pracownikow];
@@ -180,7 +180,7 @@ void Ksiegarnia::dodajPracownika(string nowe_nazwisko_imie, string nowe_stanowis
 	pracownicy[liczba_pracownikow-1].wprowadzZarobki(nowe_zarobki);
 
 	delete[]temp;
-}
+}*/
 
 //===========================OPERATORY==============================
 
