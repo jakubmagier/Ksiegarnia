@@ -16,6 +16,18 @@ Ksiazka::Ksiazka()
 	rok_wydania=2008;
 }
 
+Ksiazka::Ksiazka(string nowy_tytul, string nowy_autor, int nowy_rok_wydania)
+{
+#ifdef _DEBUG
+
+	cout << "Wywolano konstruktor z atrybutami obiektu Ksiazka" << endl;
+
+#endif
+	tytul = nowy_tytul;
+	autor = nowy_autor;      
+	rok_wydania = nowy_rok_wydania;
+}
+
 Ksiazka::~Ksiazka()
 {
 #ifdef _DEBUG

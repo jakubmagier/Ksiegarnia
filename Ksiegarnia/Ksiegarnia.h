@@ -1,18 +1,20 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include <vector>
 #include "Ksiazka.h"
 #include "Pracownicy.h"
 #include "Siedziba.h"
 #include "Przedsiebiorstwo.h"
+
 
 using namespace std;
 
 class Ksiegarnia: public Przedsiebiorstwo
 {
 	Siedziba siedziba;
-	Ksiazka* ksiazka;
-	Pracownicy* pracownicy;
+	vector<Ksiazka>ksiazka;
+	vector<Pracownicy>pracownicy;
 
 	string nazwa;
 	string wlasciciel;	
@@ -20,7 +22,7 @@ class Ksiegarnia: public Przedsiebiorstwo
 
 public:
 
-	//static int iloscObiektow;
+	static int iloscKsiegarni;
 	Ksiegarnia(); //konstruktor
 	Ksiegarnia::Ksiegarnia(string dodaj_nazwe, string dodaj_wlasciciela, int ile_pracownikow, int ile_ksiazek, string dodaj_adres, int dodaj_nr_telefonu, int dodaj_liczba_pomieszczen);
 	~Ksiegarnia(); //destruktor
@@ -28,9 +30,11 @@ public:
 	void wyswietlStan();
 	void Ksiegarnia::wyswietlLiczbePracownikow();
 	void Ksiegarnia::wyswietlLiczbeKsiazek();
-	void dodajKsiazke(string nowy_tytul, string nowy_autor, int nowy_rok);
-	//void dodajPracownika(string nowe_nazwisko_imie, string nowe_stanowisko, float nowe_zarobki);
-	
+	void Ksiegarnia::dodajKsiazke();
+	void Ksiegarnia::usunKsiazke();
+	void Ksiegarnia::dodajPracownika();
+	void Ksiegarnia::usunPracownika();
+
 	bool operator==(const Ksiegarnia &k);
 	bool operator>(const Ksiegarnia &k);
 	bool operator<(const Ksiegarnia &k);

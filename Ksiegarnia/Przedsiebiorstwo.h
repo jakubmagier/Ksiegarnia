@@ -10,7 +10,7 @@ class Przedsiebiorstwo
 	string nazwa; ///<zmienna przechowuj¹ca nazwe przedsiebiorstwa
 protected:	
 	string wlasciciel; ///<zmienna przechowuj¹ca nazwisko i imie wlasciciela
-	static int iloscObiektow; ///<zmienna przechowujaca ilosc utworzonych obiektow
+	static int iloscPrzedsiebiorstw; ///<zmienna przechowujaca ilosc utworzonych obiektow
 public:
 	///Kontruktor domyœlny
 	Przedsiebiorstwo();

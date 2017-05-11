@@ -4,7 +4,7 @@
 
 using namespace std;
 
-//int Ksiegarnia::iloscObiektow = 0;
+int Ksiegarnia::iloscKsiegarni = 0;
 
 Ksiegarnia::Ksiegarnia() // Konstruktor domyslny
 {
@@ -15,12 +15,18 @@ Ksiegarnia::Ksiegarnia() // Konstruktor domyslny
 #endif
 	nazwa="Dobra ksiazka";
 	wlasciciel="Jan Nowak";
-	liczba_pracownikow=2;
+	liczba_pracownikow=3, 
 	liczba_ksiazek=1;
-	pracownicy=new Pracownicy[liczba_pracownikow];
-	ksiazka=new Ksiazka[liczba_ksiazek];
-	//iloscObiektow++;
-	cout << "Obiekty:" << iloscObiektow << endl;
+	for (int i = 0; i < liczba_pracownikow; i++)
+	{
+		pracownicy.push_back(Pracownicy());
+	}
+	for (int i = 0; i < liczba_ksiazek; i++)
+	{
+		ksiazka.push_back(Ksiazka());
+	}
+	iloscKsiegarni++;
+	cout << "Ksiegarnie:" << iloscKsiegarni << endl;
 	
 }
 
@@ -37,14 +43,19 @@ Ksiegarnia::Ksiegarnia(string dodaj_nazwe, string dodaj_wlasciciela, int ile_pra
 	siedziba.dodajSiedzibe(dodaj_adres, dodaj_nr_telefonu, dodaj_liczba_pomieszczen);
 	liczba_pracownikow=ile_pracownikow;
 	liczba_ksiazek=ile_ksiazek;
-	pracownicy = new Pracownicy[liczba_pracownikow];
-	ksiazka = new Ksiazka[liczba_ksiazek];
-	//iloscObiektow++;
-	cout << "Obiekty:" << iloscObiektow << endl;
+	for (int i = 0; i < liczba_pracownikow; i++)
+	{
+		pracownicy.push_back(Pracownicy());
+	}
+	for (int i = 0; i < liczba_ksiazek; i++)
+	{
+		ksiazka.push_back(Ksiazka());
+	iloscKsiegarni++;
+	cout << "Ksiegarnie:" << iloscKsiegarni << endl;
 
 }
 
-Ksiegarnia::Ksiegarnia(const Ksiegarnia &ksiegarnia) //konstruktor kopiujacy
+/*Ksiegarnia::Ksiegarnia(const Ksiegarnia &ksiegarnia) //konstruktor kopiujacy
 {
 #ifdef _DEBUG
 
@@ -56,8 +67,8 @@ Ksiegarnia::Ksiegarnia(const Ksiegarnia &ksiegarnia) //konstruktor kopiujacy
 	liczba_ksiazek = ksiegarnia.liczba_ksiazek;
 	liczba_pracownikow = ksiegarnia.liczba_pracownikow;
 	siedziba = ksiegarnia.siedziba;
-
-	if (ksiegarnia.pracownicy != nullptr)
+	*/
+	/*if (ksiegarnia.pracownicy != nullptr)
 	{
 		pracownicy = new Pracownicy[liczba_pracownikow];
 		for (int i = 0; i < liczba_pracownikow; i++)
@@ -69,8 +80,8 @@ Ksiegarnia::Ksiegarnia(const Ksiegarnia &ksiegarnia) //konstruktor kopiujacy
 	{
 		pracownicy = nullptr;
 	}
-
-
+	*/
+	/*
 	if (ksiegarnia.ksiazka != nullptr)
 	{
 		ksiazka = new Ksiazka[liczba_ksiazek];
@@ -82,9 +93,9 @@ Ksiegarnia::Ksiegarnia(const Ksiegarnia &ksiegarnia) //konstruktor kopiujacy
 	else
 	{
 		ksiazka=nullptr;
-	}
-	iloscObiektow++;
-	cout << "Obiekty:" << iloscObiektow << endl;
+	}*/
+	iloscKsiegarni++;
+	cout << "Ksiegarnie:" << iloscKsiegarni << endl;
 }
 
 Ksiegarnia::~Ksiegarnia()
@@ -94,9 +105,7 @@ Ksiegarnia::~Ksiegarnia()
 	cout << "Wywolano destruktor obiektu Ksiegarnia" << endl;
 
 #endif
-	delete[]ksiazka;
-	delete[]pracownicy;
-	//iloscObiektow--;
+	iloscKsiegarni--;
 }
 
 //===========================METODY==============================
@@ -113,22 +122,24 @@ void Ksiegarnia::wyswietlStan()
 	cout<<"Siedziba ksiegarni:"<<endl<<endl;
 	siedziba.wyswietlSiedzibe();
 
-	if (liczba_pracownikow > 0)
+	if (pracownicy.size() > 0)
 	{
 		cout<<"Pracownicy ksiegarni:"<<endl<<endl;
-		for (int i = 0; i < liczba_pracownikow; i++)
+		for (int i = 0; i < pracownicy.size(); i++)
 		{
+			cout<<i+1<<":"<<endl;
 			pracownicy[i].wyswietlPracownika();
 		}
 	}
 	else
 	cout << "Brak pracownikow" << endl;
 
-	if (liczba_ksiazek > 0)
+	if (ksiazka.size() > 0)
 	{
 		cout << "Ksiazki w ksiegarni:" << endl << endl;
-		for (int i = 0; i < liczba_ksiazek; i++)
+		for (int i = 0; i < ksiazka.size(); i++)
 		{
+			cout << i + 1 << ":" << endl;
 			ksiazka[i].wyswietlKsiazke();
 		}
 	}
@@ -136,52 +147,50 @@ void Ksiegarnia::wyswietlStan()
 		cout << "Brak ksiazek" << endl;
 }
 
-void Ksiegarnia::dodajKsiazke(string nowy_tytul, string nowy_autor, int nowy_rok)
+void Ksiegarnia::dodajPracownika()
 {
-	Ksiazka* temp;
-	temp = new Ksiazka [liczba_ksiazek];
-	for (int i = 0; i < liczba_ksiazek; i++)
-	{
-		temp[i]=ksiazka[i];
-	}
-	delete[]ksiazka;
-	liczba_ksiazek++;
-	ksiazka = new Ksiazka [liczba_ksiazek];
-
-	for (int i = 0; i < liczba_ksiazek-1; i++)
-	{
-		ksiazka[i]=temp[i];
-	}
-	ksiazka [liczba_ksiazek-1].wprowadzTytul(nowy_tytul);
-	ksiazka [liczba_ksiazek-1].wprowadzAutora(nowy_autor);
-	ksiazka [liczba_ksiazek-1].wprowadzRokWydania(nowy_rok);
-
-	delete[]temp;
+	cout<<"Nazwisko:"<<endl;
+	string nowe_nazwisko;
+	cin>>nowe_nazwisko;
+	cout << "Zarobki:" << endl;
+	float nowe_zarobki;
+	cin >> nowe_zarobki;
+	pracownicy.push_back(Pracownicy(nowe_nazwisko, nowe_zarobki));
+	liczba_pracownikow++;
 }
 
-/*void Ksiegarnia::dodajPracownika(string nowe_nazwisko_imie, string nowe_stanowisko, float nowe_zarobki)
+void Ksiegarnia::usunPracownika()
 {
-	Pracownicy* temp;
-	temp = new Pracownicy[liczba_pracownikow];
-	for (int i = 0; i < liczba_pracownikow; i++)
-	{
-		temp[i] = pracownicy[i];
-	}
-	delete[] pracownicy;
-	liczba_pracownikow++;
-	pracownicy = new Pracownicy[liczba_pracownikow];
+	cout << "Numer pracownika:" << endl;
+	int nr;
+	cin >> nr;
+	pracownicy.erase(pracownicy.begin() + nr - 1);
+	liczba_pracownikow--;
+}
 
-	for (int i = 0; i < liczba_pracownikow-1; i++)
-	{
-		pracownicy[i] = temp[i];
-	}
-	pracownicy[liczba_pracownikow-1].wprowadzNazwiskoIImie(nowe_nazwisko_imie);
-	pracownicy[liczba_pracownikow-1].wprowadzStanowisko(nowe_stanowisko);
-	pracownicy[liczba_pracownikow-1].wprowadzZarobki(nowe_zarobki);
+void Ksiegarnia::dodajKsiazke()
+{
+	cout << "Tytul:" << endl;
+	string nowy_tytul;
+	cin >> nowy_tytul;
+	cout << "Autor:" << endl;
+	string nowy_autor;
+	cin >> nowy_autor;
+	cout << "Rok wydania:" << endl;
+	float nowy_rok_wydania;
+	cin >> nowy_rok_wydania;
+	ksiazka.push_back(Ksiazka(nowy_tytul, nowy_autor, nowy_rok_wydania));
+	liczba_ksiazek++;
+}
 
-	delete[]temp;
-}*/
-
+void Ksiegarnia::usunKsiazke()
+{
+	cout << "Numer ksiazki:" << endl;
+	int nr;
+	cin >> nr;
+	ksiazka.erase(ksiazka.begin()+nr-1);
+	liczba_ksiazek--;
+}
 //===========================OPERATORY==============================
 
 bool Ksiegarnia::operator==(const Ksiegarnia &k) //sprawdzenie czy w obu ksiegarniach jest tyle samo pracownikow
@@ -214,11 +223,11 @@ if(&k != this)  //zabezpieczenie przed przypisaniem samego siebie
 {
 	wlasciciel = k.wlasciciel;
 	nazwa = k.nazwa;
-	liczba_pracownikow = k.liczba_pracownikow;
+	//liczba_pracownikow = k.liczba_pracownikow;
 	liczba_ksiazek = k.liczba_ksiazek;
 	siedziba = k.siedziba;
 
-	if (pracownicy != nullptr)
+	/*if (pracownicy != nullptr)
 		delete[] pracownicy;
 	pracownicy = new Pracownicy [liczba_pracownikow];
 
@@ -226,7 +235,7 @@ if(&k != this)  //zabezpieczenie przed przypisaniem samego siebie
 	{
 		pracownicy[i] = k.pracownicy[i];
 	}
-
+	
 	if (ksiazka != nullptr)
 		delete[] ksiazka;
 	ksiazka = new Ksiazka[liczba_ksiazek];
@@ -234,7 +243,7 @@ if(&k != this)  //zabezpieczenie przed przypisaniem samego siebie
 	for (int i = 0; i < liczba_ksiazek; i++)
 	{
 		ksiazka[i] = k.ksiazka[i];
-	}
+	}*/
 }
 	return *this;
 }
@@ -273,13 +282,13 @@ ostream& operator<<(ostream&s, Ksiegarnia &k) //operator strumieniowy
 	return s;
 }
 
-Pracownicy& Ksiegarnia::operator[](unsigned int i) //operator indeksowania - zwraca obiekt Pracownicy o podanym nr
+/*Pracownicy& Ksiegarnia::operator[](unsigned int i) //operator indeksowania - zwraca obiekt Pracownicy o podanym nr
 {
 	if (i < liczba_pracownikow)
 	{
 		return pracownicy[i];
 	}
-}
+}*/
 
 Ksiegarnia::operator int() //operator konwertujacy
 {

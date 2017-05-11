@@ -19,5 +19,6 @@ public:
 	friend ostream& operator<<(ostream&s, Ksiazka &k);
 
 	Ksiazka();
+	Ksiazka(string nowy_tytul, string nowy_autor, int nowy_rok_wydania);
 	~Ksiazka();
 };

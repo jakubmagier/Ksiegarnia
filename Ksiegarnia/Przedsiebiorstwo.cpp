@@ -5,7 +5,7 @@
 
 using namespace std;
 
-int Przedsiebiorstwo::iloscObiektow = 0;
+int Przedsiebiorstwo::iloscPrzedsiebiorstw = 0;
 
 Przedsiebiorstwo::Przedsiebiorstwo() 
 {
@@ -14,7 +14,7 @@ Przedsiebiorstwo::Przedsiebiorstwo()
 #endif
 	nazwa = "Przedsiebiorstwo handlowo - uslugowe 'Zeus'";
 	wlasciciel = "Jan Kowalski";
-	iloscObiektow ++;
+	iloscPrzedsiebiorstw++;
 }
 
 ///Operator strumieniowy
@@ -36,5 +36,5 @@ Przedsiebiorstwo::~Przedsiebiorstwo()
 #ifdef _DEBUG
 	cout << "Wywolano destruktor obiektu Przedsiebiorstwo" << endl;
 #endif
-	iloscObiektow--;
+	iloscPrzedsiebiorstw--;
 }
