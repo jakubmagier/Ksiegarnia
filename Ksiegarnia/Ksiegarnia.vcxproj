@@ -151,6 +151,7 @@
   <ItemGroup>
     <ClInclude Include="Drukarnia.h" />
     <ClInclude Include="Ksiazka.h" />
+    <ClInclude Include="Ksiegarnia internetowa.h" />
     <ClInclude Include="Ksiegarnia.h" />
     <ClInclude Include="Pracownicy.h" />
     <ClInclude Include="Przedsiebiorstwo.h" />
@@ -159,6 +160,7 @@
   <ItemGroup>
     <ClCompile Include="Drukarnia.cpp" />
     <ClCompile Include="Ksiazka.cpp" />
+    <ClCompile Include="Ksiegarnia internetowa.cpp" />
     <ClCompile Include="Ksiegarnia.cpp" />
     <ClCompile Include="Pracownicy.cpp" />
     <ClCompile Include="Program.cpp" />

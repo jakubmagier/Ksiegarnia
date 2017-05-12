@@ -36,6 +36,9 @@
     <ClInclude Include="Drukarnia.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Ksiegarnia internetowa.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Ksiegarnia.cpp">
@@ -57,6 +60,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Drukarnia.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Ksiegarnia internetowa.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

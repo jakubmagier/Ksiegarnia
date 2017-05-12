@@ -3,14 +3,13 @@
 #include <string>
 #include <vector>
 #include "Przedsiebiorstwo.h"
+#include "Pracownicy.h"
 
 using namespace std;
 
 ///Klasa Drukarnia, pochodna klasy Przedsiebiorstwo
-class Drukarnia: private Przedsiebiorstwo
+class Drukarnia: public Przedsiebiorstwo
 {
-	vector<string>nazwisko_pracownika;
-	vector<float>zarobki_pracownika;
 	string nazwa; ///<Zmienna przechowujaca nazwe drukarni
 	int ilosæ_drukarek; ///<Zmienna przechowujaca liczbe drukarek znajdujacych sie w drukarni
 
@@ -19,6 +18,8 @@ public:
 	static int iloscDrukarni;
 	///Kontruktor domyœlny
 	Drukarnia();
+	///Konstruktor z parametrem
+	Drukarnia(int liczba_pracownikow);
 	///Destruktor
 	~Drukarnia();
 	void wyswietlStan();

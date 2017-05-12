@@ -22,7 +22,7 @@ Pracownicy::Pracownicy(string nowe_nazw, float nowe_zarob)
 	cout << "Wywolano konstruktor z atr obiektu Pracownicy" << endl;
 
 #endif
-	nazwisko_i_imie = nowe_nazw;	                  //domyslne wartosci
+	nazwisko_i_imie = nowe_nazw;	                  
 	zarobki = nowe_zarob;
 }
 
@@ -51,6 +51,13 @@ void Pracownicy::wyswietlPracownika()
 ostream&operator<<(ostream&s, Pracownicy &k) //operator strumieniowy
 {
 	s <<"Nazwisko i imie: "<< k.nazwisko_i_imie <<  endl << "Zarobki: " << k.zarobki << endl;
+	return s;
+}
+
+istream&operator>>(istream&s, Pracownicy &k) //operator strumieniowy
+{
+	s >> k.nazwisko_i_imie;
+	s >> k.zarobki;
 	return s;
 }
 

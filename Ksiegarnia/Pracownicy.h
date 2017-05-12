@@ -13,7 +13,7 @@ public:
 	
 	void wyswietlPracownika();
 	friend ostream&operator<<(ostream&s, Pracownicy &k);
-
+	friend istream&operator >> (istream&s, Pracownicy &k);
 	Pracownicy();
 	Pracownicy(string nowe_nazw, float nowe_zarob);
 	~Pracownicy();

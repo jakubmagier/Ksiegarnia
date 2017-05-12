@@ -14,8 +14,6 @@ class Ksiegarnia: public Przedsiebiorstwo
 {
 	Siedziba siedziba;
 	vector<Ksiazka>ksiazka;
-	vector<Pracownicy>pracownicy;
-
 	string nazwa;
 	string wlasciciel;	
 	int liczba_ksiazek, liczba_pracownikow;
@@ -23,8 +21,9 @@ class Ksiegarnia: public Przedsiebiorstwo
 public:
 
 	static int iloscKsiegarni;
-	Ksiegarnia(); //konstruktor
-	Ksiegarnia::Ksiegarnia(string dodaj_nazwe, string dodaj_wlasciciela, int ile_pracownikow, int ile_ksiazek, string dodaj_adres, int dodaj_nr_telefonu, int dodaj_liczba_pomieszczen);
+	Ksiegarnia(); //domyslny konstruktor
+	Ksiegarnia(int liczba_pracownikow, int liczba_ksiazek); //konstruktor z parametrami
+	Ksiegarnia(string dodaj_nazwe, string dodaj_wlasciciela, int ile_pracownikow, int ile_ksiazek, string dodaj_adres, int dodaj_nr_telefonu, int dodaj_liczba_pomieszczen);
 	~Ksiegarnia(); //destruktor
 	Ksiegarnia(const Ksiegarnia &ksiegarnia); //konstruktor kopiujacy
 	void wyswietlStan();
@@ -32,8 +31,6 @@ public:
 	void Ksiegarnia::wyswietlLiczbeKsiazek();
 	void Ksiegarnia::dodajKsiazke();
 	void Ksiegarnia::usunKsiazke();
-	void Ksiegarnia::dodajPracownika();
-	void Ksiegarnia::usunPracownika();
 
 	bool operator==(const Ksiegarnia &k);
 	bool operator>(const Ksiegarnia &k);
