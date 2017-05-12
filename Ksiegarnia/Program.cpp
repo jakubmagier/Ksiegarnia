@@ -16,8 +16,9 @@ int sumaKsiazek(int a, int b)
 int main()
 {
 	//Konstruktor ksiegarni: nazwa, wlasciciel, liczba pracownikow, liczba ksiazek, adres, nr telefonu, liczba pomieszczen)
+	//Kontruktor drukarni: liczba pracownikow
 	Ksiegarnia test1(4,1);
-	Ksiegarnia test2(1,3);
+	Drukarnia test2(3);
 	test1.wyswietlStan();
 	test2.wyswietlStan();
 

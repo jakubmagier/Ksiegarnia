@@ -3,6 +3,7 @@
 #include <fstream>
 #include <vector>
 #include "Pracownicy.h"
+#include "Siedziba.h"
 
 using namespace std;
 
@@ -10,10 +11,11 @@ using namespace std;
 class Przedsiebiorstwo
 {
 protected:	
-	string nazwa; ///<zmienna przechowuj¹ca nazwe przedsiebiorstwa
-	string wlasciciel; ///<zmienna przechowuj¹ca nazwisko i imie wlasciciela
-	static int iloscPrzedsiebiorstw; ///<zmienna przechowujaca ilosc utworzonych obiektow
-	vector<Pracownicy>pracownicy;
+	string nazwa_przedsiebiorstwa; ///<zmienna przechowuj¹ca nazwe przedsiebiorstwa
+	string wlasciciel; ///<zmienna przechowuj¹ca imie i nazwisko wlasciciela
+	static int iloscPrzedsiebiorstw; ///<zmienna przechowujaca ilosc utworzonych obiektow (Przedsiebiorstw)
+	vector<Pracownicy>pracownicy; ///<kontener zawierajacy dane pracownikow przedsiebiorstwa
+	Siedziba siedziba; ///<siedziba klasa opisujaca siedziby firm wchodzacych w sklad przedsiebiorstwa
 public:
 	///Kontruktor domyœlny
 	Przedsiebiorstwo();
@@ -21,9 +23,9 @@ public:
 	virtual ~Przedsiebiorstwo();
 	///Procedura wirtualna
 	virtual void wyswietlStan() = 0;
-	///Procedura
+	///Metoda pozwalajaca dodac pracownika do przedsiebiorstwa.
 	void dodajPracownika();
-	///Procedura
+	///Metoda pozwalajaca usunac pracownika z przedsiebiorstwa.
 	void usunPracownika();
 
 	///Operator strumieniowy <<
@@ -32,3 +34,4 @@ public:
 	friend istream&operator >> (istream &s, Przedsiebiorstwo &p);
 	
 };
+

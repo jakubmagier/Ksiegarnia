@@ -15,7 +15,6 @@ Ksiegarnia::Ksiegarnia()
 
 #endif
 	nazwa = "Dobra ksiazka";
-	wlasciciel = "Jan Nowak";
 	for (int i = 0; i < 2; i++)   //Domyslnie tworzy 2 pracownikow i 2 ksiazki 
 	{
 		pracownicy.push_back(Pracownicy());
@@ -38,7 +37,7 @@ Ksiegarnia::Ksiegarnia(int liczba_pracownikow, int liczba_ksiazek)
 
 #endif
 	nazwa="Dobra ksiazka";
-	wlasciciel="Jan Nowak"; 
+	Siedziba ("Marszalkowska 346", 444555666);
 	for (int i = 0; i < liczba_pracownikow; i++)
 	{
 		pracownicy.push_back(Pracownicy());
@@ -52,7 +51,7 @@ Ksiegarnia::Ksiegarnia(int liczba_pracownikow, int liczba_ksiazek)
 	
 }
 
-Ksiegarnia::Ksiegarnia(string dodaj_nazwe, string dodaj_wlasciciela, int ile_pracownikow, int ile_ksiazek, string dodaj_adres, int dodaj_nr_telefonu, int dodaj_liczba_pomieszczen)
+Ksiegarnia::Ksiegarnia(string dodaj_nazwe, string dodaj_wlasciciela, int ile_pracownikow, int ile_ksiazek, string dodaj_adres, int dodaj_nr_telefonu)
 {
 #ifdef _DEBUG
 
@@ -61,7 +60,7 @@ Ksiegarnia::Ksiegarnia(string dodaj_nazwe, string dodaj_wlasciciela, int ile_pra
 #endif
 	nazwa = dodaj_nazwe;
 	wlasciciel = dodaj_wlasciciela;
-	siedziba.dodajSiedzibe(dodaj_adres, dodaj_nr_telefonu, dodaj_liczba_pomieszczen);
+	Siedziba("Aleje Jerozolimskie 235", 777888999);
 	for (int i = 0; i < ile_pracownikow; i++)
 	{
 		pracownicy.push_back(Pracownicy());
@@ -139,11 +138,13 @@ void Ksiegarnia::wyswietlStan()
 {
 	cout<<"Siedziba ksiegarni:"<<endl<<endl;
 	siedziba.wyswietlSiedzibe();
-
+	cout << "Wlasciciel drukarni:" << wlasciciel << endl;
+	cout << "Nazwa ksiegarni:" << nazwa << endl;
+	cout << "Podlega pod:" << nazwa_przedsiebiorstwa << endl;
 	if (pracownicy.size() > 0)
 	{
 		cout<<"Pracownicy ksiegarni:"<<endl<<endl;
-		for (int i = 0; i < pracownicy.size(); i++)
+		for (size_t i = 0; i < pracownicy.size(); i++)
 		{
 			cout<<i+1<<":"<<endl;
 			pracownicy[i].wyswietlPracownika();
@@ -155,7 +156,7 @@ void Ksiegarnia::wyswietlStan()
 	if (ksiazka.size() > 0)
 	{
 		cout << "Ksiazki w ksiegarni:" << endl << endl;
-		for (int i = 0; i < ksiazka.size(); i++)
+		for (size_t i = 0; i < ksiazka.size(); i++)
 		{
 			cout << i + 1 << ":" << endl;
 			ksiazka[i].wyswietlKsiazke();
@@ -177,7 +178,6 @@ void Ksiegarnia::dodajKsiazke()
 	int nowy_rok_wydania;
 	cin >> nowy_rok_wydania;
 	ksiazka.push_back(Ksiazka(nowy_tytul, nowy_autor, nowy_rok_wydania));
-	liczba_ksiazek++;
 }
 
 void Ksiegarnia::usunKsiazke()
@@ -186,7 +186,6 @@ void Ksiegarnia::usunKsiazke()
 	int nr;
 	cin >> nr;
 	ksiazka.erase(ksiazka.begin()+nr-1);
-	liczba_ksiazek--;
 }
 //===========================OPERATORY==============================
 
@@ -214,17 +213,16 @@ bool Ksiegarnia::operator<(const Ksiegarnia &k) //czy w pierwszej ksiegarni prac
 		return false;
 }
 
-Ksiegarnia& Ksiegarnia::operator=(const Ksiegarnia &k) //przypisanie jednej ksiegarni parameterow drugiej
+/*Ksiegarnia& Ksiegarnia::operator=(const Ksiegarnia &k) //przypisanie jednej ksiegarni parameterow drugiej
 {
 if(&k != this)  //zabezpieczenie przed przypisaniem samego siebie
 {
 	wlasciciel = k.wlasciciel;
 	nazwa = k.nazwa;
 	//liczba_pracownikow = k.liczba_pracownikow;
-	liczba_ksiazek = k.liczba_ksiazek;
 	siedziba = k.siedziba;
 
-	/*if (pracownicy != nullptr)
+	if (pracownicy != nullptr)
 		delete[] pracownicy;
 	pracownicy = new Pracownicy [liczba_pracownikow];
 
@@ -240,21 +238,25 @@ if(&k != this)  //zabezpieczenie przed przypisaniem samego siebie
 	for (int i = 0; i < liczba_ksiazek; i++)
 	{
 		ksiazka[i] = k.ksiazka[i];
-	}*/
+	}
 }
 	return *this;
 }
-
+*/
 
 ostream& operator<<(ostream&s, Ksiegarnia &k) //operator strumieniowy
 {
-	s << "Nazwa: "<< k.nazwa << endl << "Wlasciciel: "<< k.wlasciciel << endl << "Liczba pracownikow: "<< k.pracownicy.size() << endl << "Liczba ksiazek: "<< k.liczba_ksiazek << endl;
+	s << "Nazwa: "<< k.nazwa << endl << "Liczba pracownikow: "<< k.pracownicy.size() << endl << "Liczba ksiazek: "<< k.ksiazka.size() << endl;
 	s << k.siedziba<<endl;
+	if (k.ksiazka.size() > 0)
+	{	
+		for (size_t i = 0; i < k.ksiazka.size(); i++)
+		{
+			s << k.ksiazka[i] << endl;
+		}
+	}else
+		s << "Brak ksiazek" << endl;
 
-	for (int i = 0; i < k.ksiazka.size(); i++)
-	{
-		s << k.ksiazka[i] << endl;
-	}
 	return s;
 }
 

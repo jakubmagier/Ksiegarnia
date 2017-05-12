@@ -22,3 +22,9 @@ KsiegarniaInternetowa::~KsiegarniaInternetowa()
 	cout << "Wywolano destruktor obiektu Ksiegarnia Internetowa" << endl;
 #endif
 }
+
+ostream & operator<<(ostream & s, KsiegarniaInternetowa & k)
+{
+	s << "Adres domeny: "<< k.adres_domeny << "Opcje wysylki" <<k.opcje_wysylki << endl;
+	return s;
+}

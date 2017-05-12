@@ -12,7 +12,7 @@ Przedsiebiorstwo::Przedsiebiorstwo()
 #ifdef _DEBUG  
 	cout << "Wywolano konstruktor domyslny obiektu Przedsiebiorstwo" << endl;
 #endif
-	nazwa = "Przedsiebiorstwo handlowo - uslugowe 'Zeus'";
+	nazwa_przedsiebiorstwa = "Przedsiebiorstwo handlowo - uslugowe 'Zeus'";
 	wlasciciel = "Jan Kowalski";
 	iloscPrzedsiebiorstw++;
 }
@@ -39,21 +39,29 @@ void Przedsiebiorstwo::usunPracownika()
 ///Operator strumieniowy
 ostream&operator << (ostream &s, Przedsiebiorstwo &p)
 {
-	s << p.nazwa;
+	s << p.nazwa_przedsiebiorstwa;
 	s << p.wlasciciel;
-	for (int i = 0; i < p.pracownicy.size(); i++)
+	s << p.siedziba;
+	s << "Liczba pracownikow: " << endl << p.pracownicy.size() << endl;
+	if (p.pracownicy.size() > 0)
 	{
-		s << p.pracownicy[i] << endl;
+		for (size_t i = 0; i < p.pracownicy.size(); i++)
+		{
+			s << "Pracownik nr"<<i+1<<":"<<endl;
+			s << p.pracownicy[i] << endl;
+		}
 	}
+	else 
+		s << "Brak pracownikow" << endl;
 	return s;
 }
 
 ///Operator strumieniowy
 istream&operator >> (istream &s, Przedsiebiorstwo &p)
 {
-	s >> p.nazwa;
+	s >> p.nazwa_przedsiebiorstwa;
 	s >> p.wlasciciel;
-	for (int i = 0; i < p.pracownicy.size(); i++)
+	for (size_t i = 0; i < p.pracownicy.size(); i++)
 	{
 		s >> p.pracownicy[i];
 	}

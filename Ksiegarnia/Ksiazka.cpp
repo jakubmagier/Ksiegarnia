@@ -45,26 +45,20 @@ void Ksiazka::wyswietlKsiazke()
 	cout << "Rok wydania:" << rok_wydania << endl<<endl;
 }
 
-void Ksiazka::wprowadzTytul(string nowy_tytul)
-{
-	tytul = nowy_tytul;
-}
-
-void Ksiazka::wprowadzAutora(string nowy_autor)
-{
-	autor = nowy_autor;
-}
-
-void Ksiazka::wprowadzRokWydania(int nowy_rok)
-{
-	rok_wydania = nowy_rok;
-}
 
 //===========================OPERATORY==============================
 
 ostream&operator<<(ostream&s, Ksiazka &k) //operator strumieniowy
 {
 	s << "Tytul: " << k.tytul << endl << "Autor: " << k.autor << endl << "Rok wydania: " << k.rok_wydania << endl << endl;
+	return s;
+}
+
+istream&operator>>(istream&s, Ksiazka &k) //operator strumieniowy
+{
+	s >> k.tytul;
+	s >> k.autor;
+	s >> k.rok_wydania;
 	return s;
 }
 

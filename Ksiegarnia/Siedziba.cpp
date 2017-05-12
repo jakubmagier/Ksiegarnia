@@ -11,9 +11,19 @@ Siedziba::Siedziba()
 	cout << "Wywolano konstruktor obiektu Siedziba" << endl;
 
 #endif
-	adres;
-	nr_telefonu;
-	liczba_pomieszczen;
+	adres = "Marszalkowska 234";
+	nr_telefonu = 777888999;
+}
+
+Siedziba::Siedziba(string nowy_adres, int nowy_numer)
+{
+#ifdef _DEBUG
+
+	cout << "Wywolano konstruktor z atr obiektu Siedziba" << endl;
+
+#endif
+	adres = nowy_adres;
+	nr_telefonu = nowy_numer;
 }
 
 Siedziba::~Siedziba()
@@ -31,21 +41,13 @@ void Siedziba::wyswietlSiedzibe()
 {
 	cout << "Adres:" << adres << endl;
 	cout << "Nr telefonu:" << nr_telefonu << endl;
-	cout << "Liczba pomieszczen:" << liczba_pomieszczen << endl<<endl;
-}
-
-void Siedziba::dodajSiedzibe(string dodaj_adres, int dodaj_nr_telefonu, int dodaj_liczba_pomieszczen)
-{
-	adres = dodaj_adres;
-	nr_telefonu = dodaj_nr_telefonu;
-	liczba_pomieszczen = dodaj_liczba_pomieszczen;
 }
 
 //===========================OPERATORY==============================
 
 ostream&operator<<(ostream&s, Siedziba &k) //operator strumieniowy
 {
-	s << "Adres: "<< k.adres << endl << "Nr telefonu: " << k.nr_telefonu << endl << "Liczba pomieszczen: " << k.liczba_pomieszczen << endl;
+	s << "Adres: "<< k.adres << endl << "Nr telefonu: " << k.nr_telefonu << endl;
 	return s;
 }
 

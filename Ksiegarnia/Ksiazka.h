@@ -4,21 +4,24 @@
 
 using namespace std;
 
+///Klasa przechowujaca dane o ksiazkach znajdujacych sie w ksiegarni
 class Ksiazka
 {
-	string tytul;
-	string autor;
-	int rok_wydania;
+	string tytul; ///<zmienna przechowujaca tytul ksiazki
+	string autor; ///<zmienna przechowujaca nazwisko i imie autora ksiazki
+	int rok_wydania; ///<zmienna przechowujaca rok wydania ksiazki
 
 public:
-	
+	///Metoda pozwalajaca wyswietlic dane ksiazki
 	void wyswietlKsiazke();
-	void wprowadzTytul(string nowy_tytul);
-	void wprowadzAutora(string nowy_autor);
-	void wprowadzRokWydania(int nowy_rok);
+	///Zaprzyjazniony operator strumieniowy
 	friend ostream& operator<<(ostream&s, Ksiazka &k);
-
+	///Zaprzyjazniony operator strumieniowy
+	friend istream& operator >> (istream&s, Ksiazka &k);
+	///Konstruktor
 	Ksiazka();
+	///Konstruktor z parametrami
 	Ksiazka(string nowy_tytul, string nowy_autor, int nowy_rok_wydania);
+	///Destruktor
 	~Ksiazka();
 };

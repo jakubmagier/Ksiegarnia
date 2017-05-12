@@ -4,19 +4,22 @@
 
 using namespace std;
 
+///Klasa przechowujaca dane o siedzibie firmy
 class Siedziba
 {
-	string adres;
-	int nr_telefonu;
-	int liczba_pomieszczen;
+	string adres; ///<zmienna przechowujaca adres siedziby firmy
+	int nr_telefonu; ///<zmienna przechowujaca numer telefonu do siedziby firmy
 
 public:
-	
+	///Metoda pozwalajaca wyswietlic siedzibe firmy
 	void Siedziba::wyswietlSiedzibe();
-	void dodajSiedzibe(string dodaj_adres, int dodaj_nr_telefonu, int dodaj_liczba_pomieszczen);
+	///Zaprzyjazniony operator strumieniowy
 	friend ostream& operator<<(ostream&s, Siedziba &k);
-
+	///Konstruktor domyslny
 	Siedziba();
+	///Konstruktor z parametrami
+	Siedziba(string nowy_adres, int nowy_numer);
+	///Destruktor
 	~Siedziba();
 };
 
