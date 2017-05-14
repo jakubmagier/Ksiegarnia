@@ -35,29 +35,14 @@ Pracownicy::~Pracownicy()
 #endif
 }
 
-//===========================METODY==============================
-
-void Pracownicy::wyswietlPracownika()
-{
-	cout << "Nazwisko i imie:" << nazwisko_i_imie << endl;
-	cout << "Zarobki:" << zarobki << endl<<endl;
-}
-
-
-
-
 //===========================OPERATORY==============================
 
-ostream&operator<<(ostream&s, Pracownicy &k) //operator strumieniowy
+ostream&operator<<(ostream&s, Pracownicy &p) //operator strumieniowy
 {
-	s <<"Nazwisko i imie: "<< k.nazwisko_i_imie <<  endl << "Zarobki: " << k.zarobki << endl;
-	return s;
-}
-
-istream&operator>>(istream&s, Pracownicy &k) //operator strumieniowy
-{
-	s >> k.nazwisko_i_imie;
-	s >> k.zarobki;
+	s << "Nazwisko i imie: "<< endl;
+	s << p.nazwisko_i_imie <<  endl;
+	s << "Zarobki: " << endl;
+	s << p.zarobki << endl;
 	return s;
 }
 

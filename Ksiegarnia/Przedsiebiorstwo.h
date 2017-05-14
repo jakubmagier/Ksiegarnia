@@ -23,6 +23,16 @@ public:
 	virtual ~Przedsiebiorstwo();
 	///Procedura wirtualna
 	virtual void wyswietlStan() = 0;
+	///Metoda abstrakcyjna pozwalajaca uzyskac dane klas pochodnych.
+	/**
+	Umozliwia wyprowadzenie danych obiektu na dowolny strumien wyjscia.
+	\param s dowolny strumien wyjscia*/
+	virtual void wypiszDaneFirmy(ostream &s) = 0;
+	///Metoda pozwalajaca uzyskac dane klasy podstawowej
+	/**
+	Umozliwia wyprowadzenie danych obiektu na dowolny strumien wyjscia.
+	\param s dowolny strumien wyjscia*/
+	void wypiszGlowneDaneFirmy(ostream &s);
 	///Metoda pozwalajaca dodac pracownika do przedsiebiorstwa.
 	void dodajPracownika();
 	///Metoda pozwalajaca usunac pracownika z przedsiebiorstwa.
@@ -35,3 +45,9 @@ public:
 	
 };
 
+///Przeciazony operator wyjscia.
+/**Przeciazony operator pozwala na uzyskanie danych na dowlny strumien wyjscia. W tym programie wykorzystywany do wypisu danych na standardowe wyjscie lub do pliku.*/
+ostream& operator<<(ostream &s, Przedsiebiorstwo &p);
+///Przeciazony operator wejscia.
+/**Przeciazony operator pozwala na pobranie danych z dowolnego strumienia wejscia. W tym programie wykorzystywany do odczytu danych z pliku.*/
+istream& operator >> (istream &c, Przedsiebiorstwo &p);

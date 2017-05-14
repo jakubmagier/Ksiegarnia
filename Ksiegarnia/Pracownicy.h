@@ -11,16 +11,16 @@ class Pracownicy
 	int zarobki; ///<zmienna przechowujaca zarobki pracownika
 
 public:
-	///Metoda pozwalajaca wyswietlic dane pracownika
-	void wyswietlPracownika();
-	///Zaprzyjazniony operator strumieniowy
-	friend ostream&operator<<(ostream&s, Pracownicy &k);
-	///Zaprzyjazniony operator strumieniowy
-	friend istream&operator >> (istream&s, Pracownicy &k);
 	///Konstruktor
 	Pracownicy();
 	///Konstruktor z parametrami
 	Pracownicy(string nowe_nazw, float nowe_zarob);
 	///Destruktor
 	~Pracownicy();
+	///Zaprzyjazniony operator strumieniowy
+	friend ostream&operator<<(ostream&s, Pracownicy &p);
+	
 };
+///Przeciazony operator wyjscia.
+/**Przeciazony operator pozwala na uzyskanie danych na dowolny strumien wyjscia. W tym programie wykorzystywany do wypisu danych na standardowe wyjscie lub do pliku.*/
+ostream& operator<<(ostream &s, Pracownicy &p);

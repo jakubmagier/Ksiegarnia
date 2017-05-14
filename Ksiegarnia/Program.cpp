@@ -7,55 +7,29 @@
 
 using namespace std;
 
-int wybor;
-int sumaKsiazek(int a, int b)
+void zapiszDoPliku(vector<Przedsiebiorstwo*> wektor, ostream &s)
 {
-	return a + b;
+	for (unsigned int i = 0; i < wektor.size(); i++)
+	{
+		wektor[i]->wypiszDaneFirmy(s);
+	}
 }
 
-int main()
+void wyswietl(vector<Przedsiebiorstwo*> wektor, ostream &s)
 {
-	//Konstruktor ksiegarni: nazwa, wlasciciel, liczba pracownikow, liczba ksiazek, adres, nr telefonu, liczba pomieszczen)
-	//Kontruktor drukarni: liczba pracownikow
-	Ksiegarnia test1(4,1);
-	Drukarnia test2(3);
-	test1.wyswietlStan();
-	test2.wyswietlStan();
-
-/*	test.wyswietlStan();
-	test.dodajPracownika();
-	test.wyswietlStan();	
-	test.usunPracownika();
-	test.wyswietlStan();
-	*/
-	/*cout << endl << "Witam w programie Przedsiebiorstwo, wybierz opcje:" << endl;
-	cout << endl << "1. Wyswietl stan" << endl;
-	cout << endl << "2. Dodaj pracownika" << endl;
-	cout << endl << "3. Usun pracownika" << endl;
-	cout << endl << "4. Dodaj ksiazke" << endl;
-	cout << endl << "5. Usun ksiazke" << endl;
-	cout << endl << "6. Zapisz do pliku" << endl;
-	cout << endl << "7. Odczytaj z pliku" << endl;
-	cout << endl << "8. Opusc program" << endl;
-
-	cin>>wybor;
-	if(wybor!=1,2,3,4)
-	cout<<"Blad"<<endl;
-	switch (wybor)
+	cout << "Funkcja funkcja" << endl;
+	for (unsigned int i = 0; i < wektor.size(); i++)
 	{
-		case 1: test.wyswietlStan();
-				testowa.wyswietlStan();
-				cin.get();
-				break;
-		case 4:	break;
+		wektor[i]->wypiszDaneFirmy(s);
+		s << endl;
+		cout<<"Funkcja dziala"<<endl;
 	}
-	*/
+}
 
 	//Ksiegarnia test("Kolorowa", "Jan Kowalski", 1, 3, "Marszalkowska 22", 227564743, 3);
 	//Ksiegarnia test1("Nowoczesna", "Piotr Nowak", 2, 2, "Aleje Jerozolimskie 24", 227654567, 4);
 	//test.dodajPracownika("Andrzej Nowacki", "ochroniarz", 1750);
 
-#ifdef _DEBUG
 /*	cout<<endl;
 	cout << endl << "Nacisnij klawisz [ENTER] aby przejsc do testow operatorow." << endl;
 	cin.get();
@@ -115,8 +89,6 @@ int main()
 	cin.get();
 	cout << "---------------------------------------------------------" << endl;
 	*/
-#endif
-	return 0;
-}
+
 
 

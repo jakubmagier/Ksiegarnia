@@ -16,9 +16,20 @@ public:
 	KsiegarniaInternetowa();
 	///Destruktor
 	~KsiegarniaInternetowa();
+	///Metoda pozwalajaca uzyskac dane na temat Ksiegarni internetowej.
+	/**
+	Umozliwia wyprowadzenie danych obiektu na dowolny strumien wyjscia.
+	\param s dowolny strumien wyjscia*/
+	void wypiszDaneFirmy(ostream &s);
 	///Zaprzyjazniony operator strumieniowy
 	friend ostream&operator <<(ostream&s, KsiegarniaInternetowa &k);
 	///Zaprzyjazniony operator strumieniowy
 	friend istream&operator >> (istream&s, KsiegarniaInternetowa &k);
 };
 
+///Przeciazony operator wejscia.
+/**Przeciazony operator pozwala na pobranie danych z dowolnego strumienia wejscia. W tym programie wykorzystywany do odczytu danych z pliku.*/
+istream& operator >> (istream &s, KsiegarniaInternetowa &k);
+///Przeciazony operator wyjscia.
+/**Przeciazony operator pozwala na uzyskanie danych na dowlny strumien wyjscia. W tym programie wykorzystywany do wypisu danych na standardowe wyjscie lub do pliku.*/
+ostream& operator<<(ostream &s, KsiegarniaInternetowa &k);

@@ -23,8 +23,17 @@ KsiegarniaInternetowa::~KsiegarniaInternetowa()
 #endif
 }
 
+void KsiegarniaInternetowa::wypiszDaneFirmy(ostream & s)
+{
+	s << "Ksiegarnia internetowa:" << endl;
+	Ksiegarnia::wypiszDaneFirmy(s);
+	s << *this;
+}
 ostream & operator<<(ostream & s, KsiegarniaInternetowa & k)
 {
-	s << "Adres domeny: "<< k.adres_domeny << "Opcje wysylki" <<k.opcje_wysylki << endl;
+	s << "Adres domeny: "<< endl;
+	s << k.adres_domeny << endl;
+	s << "Opcje wysylki" << endl;
+	s << k.opcje_wysylki << endl;
 	return s;
 }

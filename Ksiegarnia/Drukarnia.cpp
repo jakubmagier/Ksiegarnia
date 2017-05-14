@@ -16,8 +16,8 @@ Drukarnia::Drukarnia()
 #endif
 	nazwa = "Tani druk";
 	ilosc_drukarek = 10;
+	siedziba.ustawDaneSiedziby("Aleje Jerozolimskie 235", 777888999);
 	pracownicy.push_back(Pracownicy());
-	Siedziba("Aleje Jerozolimskie 235", 777888999);
 	iloscDrukarni++;
 	cout << "Drukarnie:" << iloscDrukarni << endl;
 }
@@ -31,6 +31,7 @@ Drukarnia::Drukarnia(int liczba_pracownikow) // Konstruktor z parametrem
 #endif
 	nazwa = "Tani druk";
 	ilosc_drukarek = 10;
+	siedziba.ustawDaneSiedziby("Aleje Jerozolimskie 235", 777888999);
 	for (int i = 0; i < liczba_pracownikow; i++)
 	{
 		pracownicy.push_back(Pracownicy());
@@ -43,8 +44,12 @@ Drukarnia::Drukarnia(int liczba_pracownikow) // Konstruktor z parametrem
 ///Operator strumieniowy
 ostream&operator << (ostream &s, Drukarnia &d)
 {
-	s << "Nazwa: " <<d.nazwa << "Liczba pracownikow: " << d.pracownicy.size() << "Ilosc drukarek: " << d.ilosc_drukarek;
+	s << "Nazwa drukarni: " << endl;
+	s << d.nazwa << endl;
+	s << "Siedziba drukarni: " << endl;
 	s << d.siedziba << endl;
+	s << "Ilosc drukarek: " << endl;
+	s << d.ilosc_drukarek << endl;
 	return s;
 }
 
@@ -64,19 +69,9 @@ Drukarnia::~Drukarnia()
 	cout << "Drukarnie:" << iloscDrukarni << endl;
 }
 
-void Drukarnia::wyswietlStan()
+void Drukarnia::wypiszDaneFirmy(ostream &s)
 {
-	cout << "Siedziba drukarni:" << endl << endl;
-	siedziba.wyswietlSiedzibe();
-	cout << "Wlasciciel drukarni:" << wlasciciel<< endl;
-	cout << "Nazwa drukarni:"<<nazwa<<endl;
-	cout << "Podlega pod:" << nazwa_przedsiebiorstwa << endl;
-	cout << "Liczba drukarek:" << ilosc_drukarek << endl;
-	cout << "Liczba pracownikow:" << pracownicy.size() << endl<<"Pracownicy:"<<endl<<endl; 
-for(size_t i = 0; i<pracownicy.size();i++)
-{
-	cout<<"Pracownik nr "<<i+1<<" : "<<endl;
-	cout<<pracownicy[i]<<endl;
-}
-
+	s << "Drukarnia" << endl;
+	wypiszGlowneDaneFirmy(s);
+	s << *this;
 }

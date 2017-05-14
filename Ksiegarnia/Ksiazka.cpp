@@ -37,20 +37,16 @@ Ksiazka::~Ksiazka()
 #endif
 }
 
-//===========================METODY==============================
-void Ksiazka::wyswietlKsiazke()
-{
-	cout << "Tytul:" << tytul << endl;
-	cout << "Autor:" << autor << endl;
-	cout << "Rok wydania:" << rok_wydania << endl<<endl;
-}
-
-
 //===========================OPERATORY==============================
 
 ostream&operator<<(ostream&s, Ksiazka &k) //operator strumieniowy
 {
-	s << "Tytul: " << k.tytul << endl << "Autor: " << k.autor << endl << "Rok wydania: " << k.rok_wydania << endl << endl;
+	s << "Tytul: " << endl;
+	s << k.tytul << endl;
+	s << "Autor: " << endl;
+	s << k.autor << endl;
+	s << "Rok wydania: " << endl;
+	s << k.rok_wydania << endl;
 	return s;
 }
 

@@ -15,6 +15,7 @@ Ksiegarnia::Ksiegarnia()
 
 #endif
 	nazwa = "Dobra ksiazka";
+	siedziba.ustawDaneSiedziby("Aleja solidarnosci 346", 444555666);
 	for (int i = 0; i < 2; i++)   //Domyslnie tworzy 2 pracownikow i 2 ksiazki 
 	{
 		pracownicy.push_back(Pracownicy());
@@ -33,11 +34,11 @@ Ksiegarnia::Ksiegarnia(int liczba_pracownikow, int liczba_ksiazek)
 {
 #ifdef _DEBUG
 
-	cout<<"Wywolano konstruktor obiektu Ksiegarnia"<<endl;
+	cout<<"Wywolano konstruktor z parametrami obiektu Ksiegarnia"<<endl;
 
 #endif
 	nazwa="Dobra ksiazka";
-	Siedziba ("Marszalkowska 346", 444555666);
+	siedziba.ustawDaneSiedziby("Aleja solidarnosci 346", 444555666);
 	for (int i = 0; i < liczba_pracownikow; i++)
 	{
 		pracownicy.push_back(Pracownicy());
@@ -49,30 +50,6 @@ Ksiegarnia::Ksiegarnia(int liczba_pracownikow, int liczba_ksiazek)
 	iloscKsiegarni++;
 	cout << "Ksiegarnie:" << iloscKsiegarni << endl;
 	
-}
-
-Ksiegarnia::Ksiegarnia(string dodaj_nazwe, string dodaj_wlasciciela, int ile_pracownikow, int ile_ksiazek, string dodaj_adres, int dodaj_nr_telefonu)
-{
-#ifdef _DEBUG
-
-	cout << "Wywolano konstruktor obiektu Ksiegarnia" << endl;
-
-#endif
-	nazwa = dodaj_nazwe;
-	wlasciciel = dodaj_wlasciciela;
-	Siedziba("Aleje Jerozolimskie 235", 777888999);
-	for (int i = 0; i < ile_pracownikow; i++)
-	{
-		pracownicy.push_back(Pracownicy());
-	}
-	for (int i = 0; i < ile_ksiazek; i++)
-	{
-		ksiazka.push_back(Ksiazka());
-		iloscKsiegarni++;
-		cout << "Ksiegarnie:" << iloscKsiegarni << endl;
-
-	}
-
 }
 
 Ksiegarnia::Ksiegarnia(const Ksiegarnia &ksiegarnia) //konstruktor kopiujacy
@@ -130,40 +107,16 @@ void Ksiegarnia::wyswietlLiczbePracownikow()
 {
 	cout<<pracownicy.size()<<endl;
 }
+
 void Ksiegarnia::wyswietlLiczbeKsiazek()
 {
 	cout<<ksiazka.size()<<endl;
 }
-void Ksiegarnia::wyswietlStan()
-{
-	cout<<"Siedziba ksiegarni:"<<endl<<endl;
-	siedziba.wyswietlSiedzibe();
-	cout << "Wlasciciel drukarni:" << wlasciciel << endl;
-	cout << "Nazwa ksiegarni:" << nazwa << endl;
-	cout << "Podlega pod:" << nazwa_przedsiebiorstwa << endl;
-	if (pracownicy.size() > 0)
-	{
-		cout<<"Pracownicy ksiegarni:"<<endl<<endl;
-		for (size_t i = 0; i < pracownicy.size(); i++)
-		{
-			cout<<i+1<<":"<<endl;
-			pracownicy[i].wyswietlPracownika();
-		}
-	}
-	else
-	cout << "Brak pracownikow" << endl;
 
-	if (ksiazka.size() > 0)
-	{
-		cout << "Ksiazki w ksiegarni:" << endl << endl;
-		for (size_t i = 0; i < ksiazka.size(); i++)
-		{
-			cout << i + 1 << ":" << endl;
-			ksiazka[i].wyswietlKsiazke();
-		}
-	}
-	else
-		cout << "Brak ksiazek" << endl;
+void Ksiegarnia::wypiszDaneFirmy(ostream &s)
+{
+	wypiszGlowneDaneFirmy(s);
+	s << *this;
 }
 
 void Ksiegarnia::dodajKsiazke()
@@ -213,40 +166,12 @@ bool Ksiegarnia::operator<(const Ksiegarnia &k) //czy w pierwszej ksiegarni prac
 		return false;
 }
 
-/*Ksiegarnia& Ksiegarnia::operator=(const Ksiegarnia &k) //przypisanie jednej ksiegarni parameterow drugiej
-{
-if(&k != this)  //zabezpieczenie przed przypisaniem samego siebie
-{
-	wlasciciel = k.wlasciciel;
-	nazwa = k.nazwa;
-	//liczba_pracownikow = k.liczba_pracownikow;
-	siedziba = k.siedziba;
-
-	if (pracownicy != nullptr)
-		delete[] pracownicy;
-	pracownicy = new Pracownicy [liczba_pracownikow];
-
-	for (int i = 0; i < liczba_pracownikow; i++)
-	{
-		pracownicy[i] = k.pracownicy[i];
-	}
-	
-	if (ksiazka != nullptr)
-		delete[] ksiazka;
-	ksiazka = new Ksiazka[liczba_ksiazek];
-
-	for (int i = 0; i < liczba_ksiazek; i++)
-	{
-		ksiazka[i] = k.ksiazka[i];
-	}
-}
-	return *this;
-}
-*/
 
 ostream& operator<<(ostream&s, Ksiegarnia &k) //operator strumieniowy
 {
-	s << "Nazwa: "<< k.nazwa << endl << "Liczba pracownikow: "<< k.pracownicy.size() << endl << "Liczba ksiazek: "<< k.ksiazka.size() << endl;
+	s << "Nazwa ksiegarni: "<< endl;
+	s << k.nazwa << endl;
+	s << "Siedziba ksiegarni: " << endl;
 	s << k.siedziba<<endl;
 	if (k.ksiazka.size() > 0)
 	{	
@@ -256,7 +181,6 @@ ostream& operator<<(ostream&s, Ksiegarnia &k) //operator strumieniowy
 		}
 	}else
 		s << "Brak ksiazek" << endl;
-
 	return s;
 }
 

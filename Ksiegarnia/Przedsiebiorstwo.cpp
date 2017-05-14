@@ -13,7 +13,7 @@ Przedsiebiorstwo::Przedsiebiorstwo()
 	cout << "Wywolano konstruktor domyslny obiektu Przedsiebiorstwo" << endl;
 #endif
 	nazwa_przedsiebiorstwa = "Przedsiebiorstwo handlowo - uslugowe 'Zeus'";
-	wlasciciel = "Jan Kowalski";
+	wlasciciel = "Jakub Magier";
 	iloscPrzedsiebiorstw++;
 }
 
@@ -36,13 +36,19 @@ void Przedsiebiorstwo::usunPracownika()
 	pracownicy.erase(pracownicy.begin() + nr - 1);
 }
 
+void Przedsiebiorstwo::wypiszGlowneDaneFirmy(ostream &s)
+{
+	s << *this;
+}
+
 ///Operator strumieniowy
 ostream&operator << (ostream &s, Przedsiebiorstwo &p)
 {
-	s << p.nazwa_przedsiebiorstwa;
-	s << p.wlasciciel;
-	s << p.siedziba;
-	s << "Liczba pracownikow: " << endl << p.pracownicy.size() << endl;
+	s << "Nazwa przedsiebiorstwa:" <<endl;
+	s << p.nazwa_przedsiebiorstwa <<endl;
+	s << "Wlasciciel:" << endl;
+	s << p.wlasciciel << endl;
+	s << "Pracownicy: " << endl;
 	if (p.pracownicy.size() > 0)
 	{
 		for (size_t i = 0; i < p.pracownicy.size(); i++)
@@ -61,10 +67,6 @@ istream&operator >> (istream &s, Przedsiebiorstwo &p)
 {
 	s >> p.nazwa_przedsiebiorstwa;
 	s >> p.wlasciciel;
-	for (size_t i = 0; i < p.pracownicy.size(); i++)
-	{
-		s >> p.pracownicy[i];
-	}
 	return s;
 }
 
