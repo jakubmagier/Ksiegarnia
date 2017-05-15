@@ -47,7 +47,7 @@ ostream&operator << (ostream &s, Drukarnia &d)
 	s << "Nazwa drukarni: " << endl;
 	s << d.nazwa << endl;
 	s << "Siedziba drukarni: " << endl;
-	s << d.siedziba << endl;
+	s << d.siedziba;
 	s << "Ilosc drukarek: " << endl;
 	s << d.ilosc_drukarek << endl;
 	return s;
@@ -77,7 +77,6 @@ Drukarnia::~Drukarnia()
 
 void Drukarnia::wypiszDaneFirmy(ostream &s)
 {
-	s << "Drukarnia"<< endl;
 	wypiszGlowneDaneFirmy(s);
 	s << *this;
 }

@@ -25,7 +25,6 @@ KsiegarniaInternetowa::~KsiegarniaInternetowa()
 
 void KsiegarniaInternetowa::wypiszDaneFirmy(ostream & s)
 {
-	s << "KsiegarniaInternetowa" << endl;
 	Ksiegarnia::wypiszDaneFirmy(s);
 	s << *this;
 }

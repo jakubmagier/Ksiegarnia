@@ -13,7 +13,7 @@ Przedsiebiorstwo::Przedsiebiorstwo()
 	cout << "Wywolano konstruktor domyslny obiektu Przedsiebiorstwo" << endl;
 #endif
 	nazwa_przedsiebiorstwa = "JakuMa";
-	wlasciciel = "Jakub Magier";
+	wlasciciel = "JakubMagier";
 	iloscPrzedsiebiorstw++;
 }
 
@@ -80,7 +80,7 @@ istream&operator >> (istream &s, Przedsiebiorstwo &p)
 	s >> zmienna_pomocnicza;
 	if (liczba_pracownikow > 0)
 	{
-		for (size_t i = 0; i < liczba_pracownikow; i++)
+		for (int i = 0; i < liczba_pracownikow; i++)
 		{
 			s >> zmienna_pomocnicza >> zmienna_pomocnicza;
 			s >> zmienna_pomocnicza >> zmienna_pomocnicza >> zmienna_pomocnicza;

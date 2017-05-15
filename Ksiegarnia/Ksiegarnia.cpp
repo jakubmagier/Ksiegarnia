@@ -109,7 +109,6 @@ void Ksiegarnia::wyswietlLiczbeKsiazek()
 
 void Ksiegarnia::wypiszDaneFirmy(ostream &s)
 {
-	s << "Ksiegarnia" << endl;
 	wypiszGlowneDaneFirmy(s);
 	s << *this;
 }
@@ -169,7 +168,7 @@ ostream& operator<<(ostream&s, Ksiegarnia &k) //operator strumieniowy
 	s << "Nazwa ksiegarni: "<< endl;
 	s << k.nazwa << endl;
 	s << "Siedziba ksiegarni: " << endl;
-	s << k.siedziba<<endl;
+	s << k.siedziba;
 	s << "Liczba ksiazek: " << endl;
 	s << k.ksiazka.size() << endl;
 	s << "Ksiazki: " << endl;
@@ -193,9 +192,11 @@ istream& operator >> (istream&s, Ksiegarnia &k)
 	s >> zmienna_pomocnicza >>zmienna_pomocnicza;
 	s >> k.nazwa;
 	s >> zmienna_pomocnicza >> zmienna_pomocnicza;
-	s >> k.siedziba;
+	s >> k.siedziba;	
+	s >> zmienna_pomocnicza;
 	s >> zmienna_pomocnicza >> zmienna_pomocnicza;
 	s >> liczba_ksiazek;
+
 	s >> zmienna_pomocnicza;
 	if (liczba_ksiazek > 0)
 	{
