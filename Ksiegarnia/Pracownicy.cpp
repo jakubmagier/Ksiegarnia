@@ -11,15 +11,13 @@ Pracownicy::Pracownicy()
 	cout << "Wywolano konstruktor obiektu Pracownicy" << endl;
 
 #endif
-	nazwisko_i_imie = "Jan Kowalski";	                  //domyslne wartosci
-	zarobki = 2000;
 }
 
 Pracownicy::Pracownicy(string nowe_nazw, float nowe_zarob)
 {
 #ifdef _DEBUG
 
-	cout << "Wywolano konstruktor z atr obiektu Pracownicy" << endl;
+	cout << "Wywolano konstruktor z parametrami obiektu Pracownicy" << endl;
 
 #endif
 	nazwisko_i_imie = nowe_nazw;	                  

@@ -1,0 +1,196 @@
+\section{Drukarnia Class Reference}
+\label{class_drukarnia}\index{Drukarnia@{Drukarnia}}
+
+
+Klasa \doxyref{Drukarnia}{p.}{class_drukarnia}, pochodna klasy \doxyref{Przedsiebiorstwo}{p.}{class_przedsiebiorstwo}.  
+
+
+
+
+{\ttfamily \#include $<$Drukarnia.\+h$>$}
+
+Inheritance diagram for Drukarnia\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_drukarnia}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Drukarnia} ()
+\begin{DoxyCompactList}\small\item\em Kontruktor domyslny. \end{DoxyCompactList}\item 
+\textbf{ $\sim$\+Drukarnia} ()
+\begin{DoxyCompactList}\small\item\em Destruktor. \end{DoxyCompactList}\item 
+void \textbf{ wypisz\+Dane\+Firmy} (ostream \&s)
+\begin{DoxyCompactList}\small\item\em Metoda pozwalajaca uzyskac dane na temat Drukarni. \end{DoxyCompactList}\item 
+void \textbf{ wprowadz\+Dane\+Firmy\+Z\+Pliku} (istream \&s)
+\begin{DoxyCompactList}\small\item\em Metoda pozwalajaca na wprowadzenie danych Drukarni. \end{DoxyCompactList}\item 
+void \textbf{ wprowadz\+Dane\+Drukarni} (string nowa\+\_\+nazwa, string nowy\+\_\+adres, int nowa\+\_\+ilosc\+\_\+drukarek, int nowy\+\_\+telefon)
+\begin{DoxyCompactList}\small\item\em Metoda pozwalajaca wprowadzic dane drukarni. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static int \textbf{ ilosc\+Drukarni} = 0
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \textbf{ nazwa}
+\begin{DoxyCompactList}\small\item\em Zmienna przechowujaca nazwe drukarni. \end{DoxyCompactList}\item 
+int \textbf{ ilosc\+\_\+drukarek}
+\begin{DoxyCompactList}\small\item\em Zmienna przechowujaca liczbe drukarek znajdujacych sie w drukarni. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+ostream \& \textbf{ operator$<$$<$} (ostream \&s, \textbf{ Drukarnia} \&d)
+\begin{DoxyCompactList}\small\item\em Zaprzyjazniony operator strumieniowy. \end{DoxyCompactList}\item 
+istream \& \textbf{ operator$>$$>$} (istream \&s, \textbf{ Drukarnia} \&d)
+\begin{DoxyCompactList}\small\item\em Zaprzyjazniony operator strumieniowy. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Klasa \doxyref{Drukarnia}{p.}{class_drukarnia}, pochodna klasy \doxyref{Przedsiebiorstwo}{p.}{class_przedsiebiorstwo}. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\label{class_drukarnia_af421887bf3ea71bfa41a6cbeecbb84fa}} 
+\index{Drukarnia@{Drukarnia}!Drukarnia@{Drukarnia}}
+\index{Drukarnia@{Drukarnia}!Drukarnia@{Drukarnia}}
+\subsubsection{Drukarnia()}
+{\footnotesize\ttfamily Drukarnia\+::\+Drukarnia (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Kontruktor domyslny. 
+
+\mbox{\label{class_drukarnia_a6873a3fc7c08bb7bb6dbceb9c9e4bfda}} 
+\index{Drukarnia@{Drukarnia}!````~Drukarnia@{$\sim$\+Drukarnia}}
+\index{````~Drukarnia@{$\sim$\+Drukarnia}!Drukarnia@{Drukarnia}}
+\subsubsection{$\sim$\+Drukarnia()}
+{\footnotesize\ttfamily Drukarnia\+::$\sim$\+Drukarnia (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destruktor. 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\label{class_drukarnia_a5c5e6859eacaa7603857dc2597d43781}} 
+\index{Drukarnia@{Drukarnia}!wprowadz\+Dane\+Drukarni@{wprowadz\+Dane\+Drukarni}}
+\index{wprowadz\+Dane\+Drukarni@{wprowadz\+Dane\+Drukarni}!Drukarnia@{Drukarnia}}
+\subsubsection{wprowadz\+Dane\+Drukarni()}
+{\footnotesize\ttfamily void Drukarnia\+::wprowadz\+Dane\+Drukarni (\begin{DoxyParamCaption}\item[{string}]{nowa\+\_\+nazwa,  }\item[{string}]{nowy\+\_\+adres,  }\item[{int}]{nowa\+\_\+ilosc\+\_\+drukarek,  }\item[{int}]{nowy\+\_\+telefon }\end{DoxyParamCaption})}
+
+
+
+Metoda pozwalajaca wprowadzic dane drukarni. 
+
+Metoda pozwala na dodanie nazwy, adresu, ilosci drukarek i nr telefonu drukarni. 
+\begin{DoxyParams}{Parameters}
+{\em nowa\+\_\+nazwa} & nazwa drukarni \\
+\hline
+{\em nowy\+\_\+adres} & adres drukarni \\
+\hline
+{\em nowa\+\_\+ilosc\+\_\+drukarek} & ilosc drukarek w drukarni \\
+\hline
+{\em nowy\+\_\+telefon} & telefon do drukarni \\
+\hline
+\end{DoxyParams}
+\mbox{\label{class_drukarnia_aa77de3fe83557754ebac4a6b4a443c9d}} 
+\index{Drukarnia@{Drukarnia}!wprowadz\+Dane\+Firmy\+Z\+Pliku@{wprowadz\+Dane\+Firmy\+Z\+Pliku}}
+\index{wprowadz\+Dane\+Firmy\+Z\+Pliku@{wprowadz\+Dane\+Firmy\+Z\+Pliku}!Drukarnia@{Drukarnia}}
+\subsubsection{wprowadz\+Dane\+Firmy\+Z\+Pliku()}
+{\footnotesize\ttfamily void Drukarnia\+::wprowadz\+Dane\+Firmy\+Z\+Pliku (\begin{DoxyParamCaption}\item[{istream \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Metoda pozwalajaca na wprowadzenie danych Drukarni. 
+
+Umozliwia wprowadzanie danych obiektu z pliku. 
+\begin{DoxyParams}{Parameters}
+{\em s} & strumien wejscia \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \textbf{ Przedsiebiorstwo} \doxyref{}{p.}{class_przedsiebiorstwo_adff311023ef04e492b6a7db7d4a8a01c}.
+
+\mbox{\label{class_drukarnia_a9ebed3c69bdb7fbc30dfca3fda086233}} 
+\index{Drukarnia@{Drukarnia}!wypisz\+Dane\+Firmy@{wypisz\+Dane\+Firmy}}
+\index{wypisz\+Dane\+Firmy@{wypisz\+Dane\+Firmy}!Drukarnia@{Drukarnia}}
+\subsubsection{wypisz\+Dane\+Firmy()}
+{\footnotesize\ttfamily void Drukarnia\+::wypisz\+Dane\+Firmy (\begin{DoxyParamCaption}\item[{ostream \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Metoda pozwalajaca uzyskac dane na temat Drukarni. 
+
+Umozliwia wyprowadzenie danych obiektu na dowolny strumien wyjscia. 
+\begin{DoxyParams}{Parameters}
+{\em s} & dowolny strumien wyjscia \\
+\hline
+\end{DoxyParams}
+
+
+Implements \textbf{ Przedsiebiorstwo} \doxyref{}{p.}{class_przedsiebiorstwo_aff6ca5801f0160b5201be2209c58459d}.
+
+
+
+\subsection{Friends And Related Function Documentation}
+\mbox{\label{class_drukarnia_a0980f69a891e6b38b5bba72efa182ef9}} 
+\index{Drukarnia@{Drukarnia}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Drukarnia@{Drukarnia}}
+\subsubsection{operator$<$$<$}
+{\footnotesize\ttfamily ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{ostream \&}]{s,  }\item[{\textbf{ Drukarnia} \&}]{d }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Zaprzyjazniony operator strumieniowy. 
+
+Przeciazony operator pozwala na uzyskanie danych na dowlny strumien wyjscia. W tym programie wykorzystywany do wypisu danych na standardowe wyjscie lub do pliku. \mbox{\label{class_drukarnia_af4a4c25098d3c4c31f1f16d79bedeaa9}} 
+\index{Drukarnia@{Drukarnia}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!Drukarnia@{Drukarnia}}
+\subsubsection{operator$>$$>$}
+{\footnotesize\ttfamily istream\& operator$>$$>$ (\begin{DoxyParamCaption}\item[{istream \&}]{s,  }\item[{\textbf{ Drukarnia} \&}]{d }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Zaprzyjazniony operator strumieniowy. 
+
+Przeciazony operator pozwala na pobranie danych z dowolnego strumienia wejscia. W tym programie wykorzystywany do odczytu danych z pliku. 
+
+\subsection{Member Data Documentation}
+\mbox{\label{class_drukarnia_a8ad27d8287cfa41d2b6b1269bf88d711}} 
+\index{Drukarnia@{Drukarnia}!ilosc\+\_\+drukarek@{ilosc\+\_\+drukarek}}
+\index{ilosc\+\_\+drukarek@{ilosc\+\_\+drukarek}!Drukarnia@{Drukarnia}}
+\subsubsection{ilosc\+\_\+drukarek}
+{\footnotesize\ttfamily int Drukarnia\+::ilosc\+\_\+drukarek\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Zmienna przechowujaca liczbe drukarek znajdujacych sie w drukarni. 
+
+\mbox{\label{class_drukarnia_a624b645d2d5b74df14404081b3bf70e6}} 
+\index{Drukarnia@{Drukarnia}!ilosc\+Drukarni@{ilosc\+Drukarni}}
+\index{ilosc\+Drukarni@{ilosc\+Drukarni}!Drukarnia@{Drukarnia}}
+\subsubsection{ilosc\+Drukarni}
+{\footnotesize\ttfamily int Drukarnia\+::ilosc\+Drukarni = 0\hspace{0.3cm}{\ttfamily [static]}}
+
+zmienna przechowujaca ilosc utworzonych obiektow (Drukarni) \mbox{\label{class_drukarnia_ae0546df33f7cf9055b3418fef4854919}} 
+\index{Drukarnia@{Drukarnia}!nazwa@{nazwa}}
+\index{nazwa@{nazwa}!Drukarnia@{Drukarnia}}
+\subsubsection{nazwa}
+{\footnotesize\ttfamily string Drukarnia\+::nazwa\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Zmienna przechowujaca nazwe drukarni. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ Drukarnia.\+h}\item 
+\textbf{ Drukarnia.\+cpp}\end{DoxyCompactItemize}

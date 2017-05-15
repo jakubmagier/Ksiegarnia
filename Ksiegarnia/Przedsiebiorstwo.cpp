@@ -12,9 +12,15 @@ Przedsiebiorstwo::Przedsiebiorstwo()
 #ifdef _DEBUG  
 	cout << "Wywolano konstruktor domyslny obiektu Przedsiebiorstwo" << endl;
 #endif
-	nazwa_przedsiebiorstwa = "JakuMa";
-	wlasciciel = "JakubMagier";
 	iloscPrzedsiebiorstw++;
+}
+
+Przedsiebiorstwo::~Przedsiebiorstwo()
+{
+#ifdef _DEBUG
+	cout << "Wywolano destruktor obiektu Przedsiebiorstwo" << endl;
+#endif
+	iloscPrzedsiebiorstw--;
 }
 
 void Przedsiebiorstwo::dodajPracownika(string nazwisko, float zarobki)
@@ -36,6 +42,12 @@ void Przedsiebiorstwo::usunPracownika(int ktory)
 void Przedsiebiorstwo::wypiszGlowneDaneFirmy(ostream &s)
 {
 	s << *this;
+}
+
+void Przedsiebiorstwo::wprowadzDanePrzedsiebiorstwa(string nowa_nazwa, string nowy_wlasciciel)
+{
+	nazwa_przedsiebiorstwa = nowa_nazwa;
+	wlasciciel = nowy_wlasciciel;
 }
 
 void Przedsiebiorstwo::wprowadzDaneFirmyZPliku(istream &s)
@@ -70,7 +82,8 @@ ostream&operator << (ostream &s, Przedsiebiorstwo &p)
 istream&operator >> (istream &s, Przedsiebiorstwo &p)
 {
 	string zmienna_pomocnicza, nazwisko;
-	int liczba_pracownikow, zarobki;
+	int liczba_pracownikow;
+	float zarobki;
 	s >> zmienna_pomocnicza >> zmienna_pomocnicza;
 	s >> p.nazwa_przedsiebiorstwa;
 	s >> zmienna_pomocnicza;
@@ -95,10 +108,3 @@ istream&operator >> (istream &s, Przedsiebiorstwo &p)
 	return s;
 }
 
-Przedsiebiorstwo::~Przedsiebiorstwo()
-{
-#ifdef _DEBUG
-	cout << "Wywolano destruktor obiektu Przedsiebiorstwo" << endl;
-#endif
-	iloscPrzedsiebiorstw--;
-}

@@ -17,10 +17,8 @@ protected:
 
 public:	
 	static int iloscDrukarni; ///<zmienna przechowujaca ilosc utworzonych obiektow (Drukarni)
-	///Kontruktor domyœlny
+	///Kontruktor domyslny
 	Drukarnia();
-	///Konstruktor z parametrem
-	Drukarnia(int liczba_pracownikow);
 	///Destruktor
 	~Drukarnia();
 	///Metoda pozwalajaca uzyskac dane na temat Drukarni.
@@ -31,8 +29,15 @@ public:
 	///Metoda pozwalajaca na wprowadzenie danych Drukarni.
 	/**
 	Umozliwia wprowadzanie danych obiektu z pliku.
-	*/
+	\param s strumien wejscia*/
 	void wprowadzDaneFirmyZPliku(istream &s);
+	///Metoda pozwalajaca wprowadzic dane drukarni.
+	/**Metoda pozwala na dodanie nazwy, adresu, ilosci drukarek i nr telefonu drukarni.
+	\param nowa_nazwa nazwa drukarni
+	\param nowy_adres adres drukarni
+	\param nowa_ilosc_drukarek ilosc drukarek w drukarni
+	\param nowy_telefon telefon do drukarni*/
+	void wprowadzDaneDrukarni(string nowa_nazwa, string nowy_adres, int nowa_ilosc_drukarek, int nowy_telefon);
 	///Zaprzyjazniony operator strumieniowy
 	friend ostream&operator<<(ostream&s, Drukarnia &d);
 	///Zaprzyjazniony operator strumieniowy

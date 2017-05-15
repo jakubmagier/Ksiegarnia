@@ -20,8 +20,6 @@ public:
 	~Ksiazka();
 	///Zaprzyjazniony operator strumieniowy
 	friend ostream& operator<<(ostream&s, Ksiazka &k);
-	///Zaprzyjazniony operator strumieniowy
-	friend istream& operator >> (istream&s, Ksiazka &k);
 };
 
 ///Przeciazony operator wyjscia.

@@ -1,0 +1,71 @@
+Ksiegarnia
+Nazwa przedsiebiorstwa:
+Artex
+Wlasciciel:
+Marecki
+Liczba pracownikow: 
+2
+Pracownicy: 
+Pracownik nr1:
+Nazwisko i imie: 
+Nowak
+Zarobki: 
+2345
+Pracownik nr2:
+Nazwisko i imie: 
+Kowalski
+Zarobki: 
+4567
+Nazwa ksiegarni: 
+Ksiazex
+Siedziba ksiegarni: 
+Adres: 
+Marszalkowska
+Nr telefonu: 
+666777888
+Liczba ksiazek: 
+2
+Ksiazki: 
+Ksiazka nr1:
+Tytul: 
+Antygona
+Autor: 
+Sofokles
+Rok wydania: 
+400
+Ksiazka nr2:
+Tytul: 
+Potop
+Autor: 
+Sienkiewicz
+Rok wydania: 
+1886
+Adres domeny: 
+ksiazex.com
+Drukarnia
+Nazwa przedsiebiorstwa:
+Tadex
+Wlasciciel:
+Tadkowski
+Liczba pracownikow: 
+2
+Pracownicy: 
+Pracownik nr1:
+Nazwisko i imie: 
+Marczak
+Zarobki: 
+1234
+Pracownik nr2:
+Nazwisko i imie: 
+Kowal
+Zarobki: 
+4578
+Nazwa drukarni: 
+Kolorowa
+Siedziba drukarni: 
+Adres: 
+Wilenska
+Nr telefonu: 
+999888777
+Ilosc drukarek: 
+8

@@ -6,7 +6,7 @@ using namespace std;
 
 int Drukarnia::iloscDrukarni = 0;
 
-/// Konstruktor domyslny obiektu Drukarnia
+// Konstruktor domyslny obiektu Drukarnia
 Drukarnia::Drukarnia() 
 {
 #ifdef _DEBUG
@@ -14,34 +14,11 @@ Drukarnia::Drukarnia()
 	cout << "Wywolano konstruktor domyslny obiektu Drukarnia" << endl;
 
 #endif
-	nazwa = "Tani druk";
-	ilosc_drukarek = 10;
-	siedziba.ustawDaneSiedziby("Aleje Jerozolimskie 235", 777888999);
-	pracownicy.push_back(Pracownicy());
 	iloscDrukarni++;
 	cout << "Drukarnie:" << iloscDrukarni << endl;
 }
 
-Drukarnia::Drukarnia(int liczba_pracownikow) // Konstruktor z parametrem
-{
-#ifdef _DEBUG
-
-	cout << "Wywolano konstruktor obiektu Drukarnia" << endl;
-
-#endif
-	nazwa = "Tani druk";
-	ilosc_drukarek = 10;
-	siedziba.ustawDaneSiedziby("Aleje Jerozolimskie 235", 777888999);
-	for (int i = 0; i < liczba_pracownikow; i++)
-	{
-		pracownicy.push_back(Pracownicy());
-	}
-	iloscDrukarni++;
-	cout << "Drukarnie:" << iloscDrukarni << endl;
-
-}
-
-///Operator strumieniowy
+//Operator strumieniowy
 ostream&operator << (ostream &s, Drukarnia &d)
 {
 	s << "Nazwa drukarni: " << endl;
@@ -53,7 +30,7 @@ ostream&operator << (ostream &s, Drukarnia &d)
 	return s;
 }
 
-///Operator strumieniowy
+//Operator strumieniowy
 istream&operator >> (istream &s, Drukarnia &d)
 {
 	string zmienna_pomocnicza;
@@ -77,6 +54,7 @@ Drukarnia::~Drukarnia()
 
 void Drukarnia::wypiszDaneFirmy(ostream &s)
 {
+	s << "Drukarnia" << endl;
 	wypiszGlowneDaneFirmy(s);
 	s << *this;
 }
@@ -85,4 +63,11 @@ void Drukarnia::wprowadzDaneFirmyZPliku(istream &s)
 {
 	Przedsiebiorstwo::wprowadzDaneFirmyZPliku(s);
 	s >> *this;
+}
+
+void Drukarnia::wprowadzDaneDrukarni(string nowa_nazwa, string nowy_adres, int nowa_ilosc_drukarek, int nowy_telefon)
+{
+	nazwa = nowa_nazwa;
+	ilosc_drukarek = nowa_ilosc_drukarek;
+	siedziba.ustawDaneSiedziby(nowy_adres, nowy_telefon);
 }

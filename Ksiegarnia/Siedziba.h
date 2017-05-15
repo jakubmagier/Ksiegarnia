@@ -12,6 +12,8 @@ class Siedziba
 
 public:
 	///Metoda pozwalajaca wyswietlic siedzibe firmy
+	/**Metoda umozliwia wyprowadzenie danych obiektu na dowolny strumien wyjscia.
+	\param s dowolny strumien wyjscia */
 	void Siedziba::wypiszSiedzibe(ostream&s);
 	///Zaprzyjazniony operator strumieniowy
 	friend istream& operator >> (istream &s, Siedziba &sb);
@@ -20,6 +22,9 @@ public:
 	///Konstruktor domyslny
 	Siedziba();
 	///Metoda pozwalajaca ustawic dane Siedziby
+	/**Metoda pozwala na ustawienie danych siedziby firmy.
+	\param nowy_adres adres firmy
+	\param nowy_numer numer telefonu do firmy*/
 	void ustawDaneSiedziby(string nowy_adres, int nowy_numer);
 	///Destruktor
 	~Siedziba();

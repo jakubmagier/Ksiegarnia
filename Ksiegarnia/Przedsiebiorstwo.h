@@ -11,13 +11,13 @@ using namespace std;
 class Przedsiebiorstwo
 {
 protected:	
-	string nazwa_przedsiebiorstwa; ///<zmienna przechowuj¹ca nazwe przedsiebiorstwa
-	string wlasciciel; ///<zmienna przechowuj¹ca imie i nazwisko wlasciciela
+	string nazwa_przedsiebiorstwa; ///<zmienna przechowujaca nazwe przedsiebiorstwa
+	string wlasciciel; ///<zmienna przechowujaca imie i nazwisko wlasciciela
 	static int iloscPrzedsiebiorstw; ///<zmienna przechowujaca ilosc utworzonych obiektow (Przedsiebiorstw)
 	vector<Pracownicy>pracownicy; ///<kontener zawierajacy dane pracownikow przedsiebiorstwa
 	Siedziba siedziba; ///<siedziba klasa opisujaca siedziby firm wchodzacych w sklad przedsiebiorstwa
 public:
-	///Kontruktor domyœlny
+	///Kontruktor domyslny
 	Przedsiebiorstwo();
 	///Destruktor wirtualny
 	virtual ~Przedsiebiorstwo();
@@ -36,6 +36,11 @@ public:
 	Umozliwia wyprowadzenie danych obiektu na dowolny strumien wyjscia.
 	\param s dowolny strumien wyjscia*/
 	void wypiszGlowneDaneFirmy(ostream &s);
+	///Metoda pozwalajaca wprowadzic dane przedsiebiorstwa.
+	/**Metoda pozwala na dodanie nazwy i wlasciciela firmy.
+	\param nowa_nazwa nazwa przedsiebiorstwa
+	\param nowy_wlasciciel imie i nazwisko wlasciciela przedsiebiorstwa*/
+	void wprowadzDanePrzedsiebiorstwa(string nowa_nazwa, string nowy_wlasciciel);
 	///Metoda pozwalajaca dodac pracownika do przedsiebiorstwa.
 	/**Metoda pozwala na dodanie pracownika o podanym nazwisku i zarobkach.
 	\param nazwisko nazwisko pracownika ktorego chcemy dodac do firmy
@@ -58,4 +63,4 @@ public:
 ostream& operator<<(ostream &s, Przedsiebiorstwo &p);
 ///Przeciazony operator wejscia.
 /**Przeciazony operator pozwala na pobranie danych z dowolnego strumienia wejscia. W tym programie wykorzystywany do odczytu danych z pliku.*/
-istream& operator >> (istream &c, Przedsiebiorstwo &p);
+istream& operator >> (istream &s, Przedsiebiorstwo &p);

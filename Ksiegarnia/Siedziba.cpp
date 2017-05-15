@@ -11,8 +11,6 @@ Siedziba::Siedziba()
 	cout << "Wywolano konstruktor obiektu Siedziba" << endl;
 
 #endif
-	adres;
-	nr_telefonu;
 }
 
 
@@ -47,7 +45,7 @@ ostream&operator<<(ostream&s, Siedziba &sb) //operator strumieniowy
 	return s;
 }
 
-istream&operator>>(istream&s, Siedziba &sb)
+istream&operator>>(istream&s, Siedziba &sb) //operator strumieniowy
 {
 	string zmienna_pomocnicza;
 	s >> zmienna_pomocnicza;
