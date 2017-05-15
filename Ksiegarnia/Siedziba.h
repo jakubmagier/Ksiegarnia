@@ -14,6 +14,8 @@ public:
 	///Metoda pozwalajaca wyswietlic siedzibe firmy
 	void Siedziba::wypiszSiedzibe(ostream&s);
 	///Zaprzyjazniony operator strumieniowy
+	friend istream& operator >> (istream &s, Siedziba &sb);
+	///Zaprzyjazniony operator strumieniowy
 	friend ostream& operator<<(ostream&s, Siedziba &sb);
 	///Konstruktor domyslny
 	Siedziba();

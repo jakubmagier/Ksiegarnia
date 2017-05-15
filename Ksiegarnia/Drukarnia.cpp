@@ -56,7 +56,13 @@ ostream&operator << (ostream &s, Drukarnia &d)
 ///Operator strumieniowy
 istream&operator >> (istream &s, Drukarnia &d)
 {
+	string zmienna_pomocnicza;
+	s >> zmienna_pomocnicza >> zmienna_pomocnicza;
 	s >> d.nazwa;
+	s >> zmienna_pomocnicza >> zmienna_pomocnicza;
+	s >> d.siedziba;
+	s >> zmienna_pomocnicza >> zmienna_pomocnicza;
+	s >> d.ilosc_drukarek;
 	return s;
 }
 
@@ -71,7 +77,13 @@ Drukarnia::~Drukarnia()
 
 void Drukarnia::wypiszDaneFirmy(ostream &s)
 {
-	s << "Drukarnia" << endl;
+	s << "Drukarnia"<< endl;
 	wypiszGlowneDaneFirmy(s);
 	s << *this;
+}
+
+void Drukarnia::wprowadzDaneFirmyZPliku(istream &s)
+{
+	Przedsiebiorstwo::wprowadzDaneFirmyZPliku(s);
+	s >> *this;
 }

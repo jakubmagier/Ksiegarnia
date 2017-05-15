@@ -28,15 +28,26 @@ public:
 	void wyswietlLiczbePracownikow();
 	///Metoda pozwalajaca wyswietlic liczbe ksiazek w ksiegarni
 	void wyswietlLiczbeKsiazek();
-	///Metoda pozwalajaca dodac nowa ksiazke do ksiegarni
-	void dodajKsiazke();
-	///Metoda pozwalajaca usunac wybrana ksiazke z ksiegarni
-	void usunKsiazke();
+	///Metoda pozwalajaca dodac ksiazke do ksiegarni.
+	/**Metoda pozwala na dodanie ksiazki o podanej nazwie, nazwisku autora i roku wydania.
+	\param tytul nazwa ksiazki ktora chcemy dodac do ksiegarni
+	\param autor nazwisko autora ksiazki ktora dodajemy
+	\param rok_wydania rok wydania ksiazki ktora dodajemy*/
+	void dodajKsiazke(string tytul, string autor, int rok_wydania);
+	///Metoda pozwalajaca usunac ksiazke z ksiegarni.
+	/**Metoda pozwala na usuniecie ksiazki o wybranym numerze.
+	\param ktora numer ksiazki ktora chcemy usunac z ksiegarni*/
+	void usunKsiazke(int ktora);
 	///Metoda pozwalajaca uzyskac dane na temat Ksiegarni.
 	/**
 	Umozliwia wyprowadzenie danych obiektu na dowolny strumien wyjscia.
 	\param s dowolny strumien wyjscia*/
 	void wypiszDaneFirmy(ostream &s);
+	///Metoda pozwalajaca na wprowadzenie danych Ksiegarni.
+	/**
+	Umozliwia wprowadzanie danych obiektu z pliku.
+	*/
+	void wprowadzDaneFirmyZPliku(istream &s);
 	///Operator porownania
 	/**Operator zwraca informacje czy liczba pracownikow w jednej ksiegarnii jest taka sama jak w innej.
 	\return informacja o rownosci liczby pracownikow dwoch ksiegarni*/
@@ -52,6 +63,8 @@ public:
 	Pracownicy& Ksiegarnia::operator[](unsigned int i);/////////////////////////////??????
 	operator int();										/////////////////////////////?????
 	Ksiegarnia& Ksiegarnia::operator=(const Ksiegarnia &k);
+	///Zaprzyjazniony operator strumieniowy
+	friend istream&operator>>(istream&s, Ksiegarnia &k);
 	///Zaprzyjazniony operator strumieniowy
 	friend ostream&operator<<(ostream&s, Ksiegarnia &k);
 	

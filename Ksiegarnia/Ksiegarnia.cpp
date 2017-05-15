@@ -16,14 +16,8 @@ Ksiegarnia::Ksiegarnia()
 #endif
 	nazwa = "Dobra ksiazka";
 	siedziba.ustawDaneSiedziby("Aleja solidarnosci 346", 444555666);
-	for (int i = 0; i < 2; i++)   //Domyslnie tworzy 2 pracownikow i 2 ksiazki 
-	{
-		pracownicy.push_back(Pracownicy());
-	}
-	for (int i = 0; i < 2; i++)
-	{
-		ksiazka.push_back(Ksiazka());
-	}
+	pracownicy.push_back(Pracownicy());
+	ksiazka.push_back(Ksiazka());
 	iloscKsiegarni++;
 	cout << "Ksiegarnie:" << iloscKsiegarni << endl;
 
@@ -115,30 +109,33 @@ void Ksiegarnia::wyswietlLiczbeKsiazek()
 
 void Ksiegarnia::wypiszDaneFirmy(ostream &s)
 {
+	s << "Ksiegarnia" << endl;
 	wypiszGlowneDaneFirmy(s);
 	s << *this;
 }
 
-void Ksiegarnia::dodajKsiazke()
+void Ksiegarnia::dodajKsiazke(string tytul, string autor, int rok_wydania)
 {
-	cout << "Tytul:" << endl;
 	string nowy_tytul;
-	cin >> nowy_tytul;
-	cout << "Autor:" << endl;
+	nowy_tytul = tytul;
 	string nowy_autor;
-	cin >> nowy_autor;
-	cout << "Rok wydania:" << endl;
+	nowy_autor = autor;
 	int nowy_rok_wydania;
-	cin >> nowy_rok_wydania;
+	nowy_rok_wydania = rok_wydania;
 	ksiazka.push_back(Ksiazka(nowy_tytul, nowy_autor, nowy_rok_wydania));
 }
 
-void Ksiegarnia::usunKsiazke()
+void Ksiegarnia::usunKsiazke(int ktora)
 {
-	cout << "Numer ksiazki:" << endl;
 	int nr;
-	cin >> nr;
+	nr = ktora;
 	ksiazka.erase(ksiazka.begin()+nr-1);
+}
+
+void Ksiegarnia::wprowadzDaneFirmyZPliku(istream &s)
+{
+	Przedsiebiorstwo::wprowadzDaneFirmyZPliku(s);
+	s >> *this;
 }
 //===========================OPERATORY==============================
 
@@ -173,17 +170,51 @@ ostream& operator<<(ostream&s, Ksiegarnia &k) //operator strumieniowy
 	s << k.nazwa << endl;
 	s << "Siedziba ksiegarni: " << endl;
 	s << k.siedziba<<endl;
+	s << "Liczba ksiazek: " << endl;
+	s << k.ksiazka.size() << endl;
+	s << "Ksiazki: " << endl;
 	if (k.ksiazka.size() > 0)
 	{	
 		for (size_t i = 0; i < k.ksiazka.size(); i++)
-		{
-			s << k.ksiazka[i] << endl;
+		{	
+			s << "Ksiazka nr" << i + 1 << ":" << endl;
+			s << k.ksiazka[i];
 		}
 	}else
 		s << "Brak ksiazek" << endl;
 	return s;
 }
 
+istream& operator >> (istream&s, Ksiegarnia &k)
+{
+	string zmienna_pomocnicza, nazwisko, tytul;
+	float rok;
+	int liczba_ksiazek;
+	s >> zmienna_pomocnicza >>zmienna_pomocnicza;
+	s >> k.nazwa;
+	s >> zmienna_pomocnicza >> zmienna_pomocnicza;
+	s >> k.siedziba;
+	s >> zmienna_pomocnicza >> zmienna_pomocnicza;
+	s >> liczba_ksiazek;
+	s >> zmienna_pomocnicza;
+	if (liczba_ksiazek > 0)
+	{
+		for (size_t i = 0; i < liczba_ksiazek; i++)
+		{
+			s >> zmienna_pomocnicza >> zmienna_pomocnicza;
+			s >> zmienna_pomocnicza;
+			s >> tytul;
+			s >> zmienna_pomocnicza;
+			s >> nazwisko;
+			s >> zmienna_pomocnicza >> zmienna_pomocnicza;
+			s >> rok;
+			k.dodajKsiazke(tytul, nazwisko, rok);
+		}
+	}
+	else
+		s >> zmienna_pomocnicza >> zmienna_pomocnicza;
+	return s;
+}
 Pracownicy& Ksiegarnia::operator[](unsigned int i) //operator indeksowania - zwraca obiekt Pracownicy o podanym nr
 {
 	if (i < pracownicy.size())

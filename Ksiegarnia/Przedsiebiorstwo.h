@@ -21,22 +21,30 @@ public:
 	Przedsiebiorstwo();
 	///Destruktor wirtualny
 	virtual ~Przedsiebiorstwo();
-	///Procedura wirtualna
-	virtual void wyswietlStan() = 0;
 	///Metoda abstrakcyjna pozwalajaca uzyskac dane klas pochodnych.
 	/**
 	Umozliwia wyprowadzenie danych obiektu na dowolny strumien wyjscia.
 	\param s dowolny strumien wyjscia*/
 	virtual void wypiszDaneFirmy(ostream &s) = 0;
+	///Metoda abstrakcyjna pozwalajaca na wprowadzenie danych utworzonego obiektu.
+	/**
+	Umozliwia wprowadzanie danych obiektu z pliku.
+	\param s strumien wejscia*/
+	virtual void wprowadzDaneFirmyZPliku(istream &s);
 	///Metoda pozwalajaca uzyskac dane klasy podstawowej
 	/**
 	Umozliwia wyprowadzenie danych obiektu na dowolny strumien wyjscia.
 	\param s dowolny strumien wyjscia*/
 	void wypiszGlowneDaneFirmy(ostream &s);
 	///Metoda pozwalajaca dodac pracownika do przedsiebiorstwa.
-	void dodajPracownika();
+	/**Metoda pozwala na dodanie pracownika o podanym nazwisku i zarobkach.
+	\param nazwisko nazwisko pracownika ktorego chcemy dodac do firmy
+	\param zarobki zarobki pracownika ktorego chcemy dodac do firmy*/
+	void dodajPracownika(string nazwisko, float zarobki);
 	///Metoda pozwalajaca usunac pracownika z przedsiebiorstwa.
-	void usunPracownika();
+	/**Metoda pozwala na usuniecie pracownika o wybranym numerze.
+	\param ktory numer pracownika ktorego chcemy usunac z firmy*/
+	void usunPracownika(int ktory);
 
 	///Operator strumieniowy <<
 	friend ostream&operator << (ostream &s, Przedsiebiorstwo &p);

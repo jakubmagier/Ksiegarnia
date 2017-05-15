@@ -17,15 +17,54 @@ void zapiszDoPliku(vector<Przedsiebiorstwo*> wektor, ostream &s)
 
 void wyswietl(vector<Przedsiebiorstwo*> wektor, ostream &s)
 {
-	cout << "Funkcja funkcja" << endl;
 	for (unsigned int i = 0; i < wektor.size(); i++)
 	{
+		s << endl;
 		wektor[i]->wypiszDaneFirmy(s);
 		s << endl;
-		cout<<"Funkcja dziala"<<endl;
 	}
 }
 
+void wczytajZPliku(vector<Przedsiebiorstwo*> &wektor, istream &s)
+{
+	Ksiegarnia *ks;
+	KsiegarniaInternetowa *ksi;
+	Drukarnia *dr;
+	string rodzaj_firmy;
+	while (s >> rodzaj_firmy)
+	{
+		if (rodzaj_firmy == "Ksiegarnia")
+		{
+			ks = new Ksiegarnia();
+			ks->wprowadzDaneFirmyZPliku(s);
+			wektor.push_back(ks);
+		}
+		else if (rodzaj_firmy == "Drukarnia")
+		{
+			dr = new Drukarnia();
+			dr->wprowadzDaneFirmyZPliku(s);
+			wektor.push_back(dr);
+		}
+		else
+		{
+			s >> rodzaj_firmy;
+			ksi = new KsiegarniaInternetowa();
+			ksi->wprowadzDaneFirmyZPliku(s);
+			wektor.push_back(ksi);
+			
+		}
+	}
+}
+
+int main()
+{
+	vector <Przedsiebiorstwo*> obiekt;
+	ifstream plik_wejsciowy;
+	ofstream plik_wyjsciowy;
+	Ksiegarnia *ks;
+	Drukarnia *dr;
+	KsiegarniaInternetowa *ksi;
+	
 	//Ksiegarnia test("Kolorowa", "Jan Kowalski", 1, 3, "Marszalkowska 22", 227564743, 3);
 	//Ksiegarnia test1("Nowoczesna", "Piotr Nowak", 2, 2, "Aleje Jerozolimskie 24", 227654567, 4);
 	//test.dodajPracownika("Andrzej Nowacki", "ochroniarz", 1750);

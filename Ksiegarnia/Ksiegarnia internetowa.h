@@ -21,6 +21,11 @@ public:
 	Umozliwia wyprowadzenie danych obiektu na dowolny strumien wyjscia.
 	\param s dowolny strumien wyjscia*/
 	void wypiszDaneFirmy(ostream &s);
+	///Metoda pozwalajaca na wprowadzenie danych Ksiegarni internetowej.
+	/**
+	Umozliwia wprowadzanie danych obiektu z pliku.
+	*/
+	void wprowadzDaneFirmyZPliku(istream &s);
 	///Zaprzyjazniony operator strumieniowy
 	friend ostream&operator <<(ostream&s, KsiegarniaInternetowa &k);
 	///Zaprzyjazniony operator strumieniowy

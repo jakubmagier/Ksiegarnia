@@ -47,5 +47,13 @@ ostream&operator<<(ostream&s, Siedziba &sb) //operator strumieniowy
 	return s;
 }
 
-
+istream&operator>>(istream&s, Siedziba &sb)
+{
+	string zmienna_pomocnicza;
+	s >> zmienna_pomocnicza;
+	s >> sb.adres;
+	s >> zmienna_pomocnicza >> zmienna_pomocnicza;
+	s >> sb.nr_telefonu;
+	return s;
+}
 
